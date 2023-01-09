@@ -1,7 +1,4 @@
 # ateam
 Repository voor het vak Algoritmen en Heuristieken, opdracht Rush Hour
-.
-.
-.
-.
-hallo
+
+hallo test 2
