@@ -3,6 +3,11 @@ import csv
 class Grid:
     """
     Grid object that states the size of the board.
+
+    Attributes:
+        car: number of cars on the play board
+        truck: number of trucks on the play board
+        size: size of the board
     """
     def __init__(self, width, height, cars, trucks):
         self.width = width
@@ -14,8 +19,14 @@ class Grid:
 class Car:
     """
     Car object in the rush hour game, size is 2x1
+
+    Attributes:
+        type: ?
+        orientation: if the car is placed horizontally (0) or vertically (1)
+        column: the column where the front of the car is placed
+        row: the row where the the front of the car is placed
     """
-    def __init__(self, type, orientation, col, row):
+    def __init__(self, type, orientation: int, col: int, row: int):
         self.type = type
         self.orientation = orientation
         self.col = col
@@ -24,11 +35,16 @@ class Car:
     def places(self, orientation, col, row):
         if orientation = 'H':
 
-
-
+# Misschien is deze class overbodig?? Want alleen de size is verschillend. Dus het kan samen in de Car Class. Dus je hebt dan gewoon auto's met lengte 2 en lengte 3
 class Truck:
     """
     Truck object in the rush hour game, size is 3x1
+
+    Attributes:
+        type: ?
+        orientation: if the car is placed horizontally or vertically
+        column: the column where the front of the car is placed
+        row: the row where the the front of the car is placed
     """
     def __init__(self, type, orientation, col, row):
         self.type = type
@@ -36,6 +52,7 @@ class Truck:
         self.col = col
         self.row = row
 
+# Deze load functie buiten de class definieren
 def load(filename: str):
     with open(filename, 'r') as file:
         header = file.readline().split(',')
@@ -63,18 +80,3 @@ def load(filename: str):
 
 if __name__ == "__main__":
     load("Rushhour6x6_1.csv")
-
-
-# def make_knapsack(filename: str) -> Knapsack:
-#     with open(filename, 'r') as file:
-#         header = file.readline()
-#         for line in file:
-#             splits = line.split(',')
-#             if len(splits) > 3:
-#                 element = splits[0].strip()
-#                 points = int(splits[1])
-#                 weight = int(splits[2])
-#                 volume = int(splits[3])
-#                 if element == 'knapsack':
-#                     knapsack = Knapsack(Resources(weight, volume))
-#     return knapsack
