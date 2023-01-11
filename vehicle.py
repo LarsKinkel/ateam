@@ -4,13 +4,29 @@ class Vehicle:
 
     Attributes:
         type: ?
-        orientation: if the car is placed horizontally (0) or vertically (1)
+        orientation: if the car is placed horizontally (H) or vertically (V)
         column: the column where the front of the car is placed
         row: the row where the the front of the car is placed
     """
-    def __init__(self, type, orientation: int, col: int, row: int, length: int):
-        self.type = type
+    def __init__(self, name: str, orientation: str, col: int, row: int, length: int):
+        self.name = name
         self.orientation = orientation
         self.col = col
         self.row = row
         self.length = length
+
+def load_vehicles(filename: str):
+    with open(filename, 'r') as file:
+        header = file.readline().split(',')
+        header[-1] = header[-1].strip()
+
+        vehicles = []
+        for line in file:
+            splits = line.split(',')
+            splits[-1] = splits[-1].strip()
+
+            vehicle = Vehicle(splits[0], splits[1], splits[2], splits[3], splits[4])
+            vehicles.append(vehicle)
+
+
+    return vehicles

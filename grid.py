@@ -1,14 +1,18 @@
+import numpy as np
+
 class Grid:
     """
     Grid object that states the size of the board.
 
     Attributes:
-        car: number of cars on the play board
-        truck: number of trucks on the play board
-        size: size of the board
+        vehicles: vehicles that are on the grid
+        dimension: dimesion of the board
     """
-    def __init__(self, width, height, cars, trucks):
-        self.width = width
-        self.height = height
-        self.cars = cars
-        self.trucks = trucks
+    def __init__(self, dimension):
+        self.grid = np.zeros(dimension, dimension)
+
+    def add_vehicle(self, vehicle):
+        pass
+
+    def __str__(self):
+        return self.grid
