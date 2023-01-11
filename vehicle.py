@@ -8,12 +8,14 @@ class Vehicle:
         column: the column where the front of the car is placed
         row: the row where the the front of the car is placed
     """
+
     def __init__(self, name: str, orientation: str, col: int, row: int, length: int):
         self.name = name
         self.orientation = orientation
         self.col = col
         self.row = row
         self.length = length
+
 
 def load_vehicles(filename: str):
     with open(filename, 'r') as file:
@@ -25,8 +27,16 @@ def load_vehicles(filename: str):
             splits = line.split(',')
             splits[-1] = splits[-1].strip()
 
+<<<<<<< HEAD
             vehicle = Vehicle(ord(splits[0]) - 64, splits[1], int(splits[2]), int(splits[3]), int(splits[4]))
+=======
+            vehicle = Vehicle(splits[0], splits[1],
+                              splits[2], splits[3], splits[4])
+>>>>>>> a5342acc4148930abf82b0fa997494040fd9e040
             vehicles.append(vehicle)
 
-
     return vehicles
+
+# toevoegen dat een vehicle een bepaalde coordinaat heeft
+# (bij horizontale voertuigen het linker blokje en bij verticale
+# voertuigen de bovenste)
