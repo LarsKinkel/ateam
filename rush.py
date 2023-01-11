@@ -27,6 +27,7 @@ class Car:
         pass
 
 
+# Misschien is deze class overbodig?? Want alleen de size is verschillend. Dus het kan samen in de Car Class. Dus je hebt dan gewoon auto's met lengte 2 en lengte 3
 class Truck:
     """
     Truck object in the rush hour game, size is 3x1
@@ -41,6 +42,7 @@ class Truck:
     def __init__(self, type, orientation: int, col: int, row: int):
         pass
 
+    # Deze load functie buiten de class definieren
     def load(filename: str):
         with open(filename, 'r') as file:
             header = file.readline().split(',')
