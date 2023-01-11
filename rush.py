@@ -17,13 +17,13 @@ class Car:
     Car object in the rush hour game, size is 2x1
 
     Attributes:
-        type:
-        orientation: if the car is placed horizontally or vertically
+        type: ?
+        orientation: if the car is placed horizontally (0) or vertically (1)
         column: the column where the front of the car is placed
         row: the row where the the front of the car is placed
     """
 
-    def __init__(self, type, orientation, col, row):
+    def __init__(self, type, orientation: int, col: int, row: int):
         pass
 
 
@@ -32,13 +32,13 @@ class Truck:
     Truck object in the rush hour game, size is 3x1
 
     Attributes:
-        type:
+        type: ?
         orientation: if the car is placed horizontally or vertically
         column: the column where the front of the car is placed
         row: the row where the the front of the car is placed
     """
 
-    def __init__(self, type, orientation, col, row):
+    def __init__(self, type, orientation: int, col: int, row: int):
         pass
 
     def load(filename: str):
