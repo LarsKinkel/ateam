@@ -25,7 +25,7 @@ def load_vehicles(filename: str):
             splits = line.split(',')
             splits[-1] = splits[-1].strip()
 
-            vehicle = Vehicle(splits[0], splits[1], splits[2], splits[3], splits[4])
+            vehicle = Vehicle(ord(splits[0]) - 64, splits[1], int(splits[2]), int(splits[3]), int(splits[4]))
             vehicles.append(vehicle)
 
 
