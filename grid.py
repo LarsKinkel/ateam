@@ -10,7 +10,8 @@ class Grid:
         dimension: dimesion of the board
     """
     def __init__(self, dimension):
-        self.grid = np.zeros((dimension, dimension))
+        self.grid = np.zeros((dimension, dimension), dtype = np.int)
+        self.dim = dimension
 
     #Misschien moeten deze methods (add vehicle, move) in de Rush Hour class, want daar programmeren wij het echte spel
 
@@ -36,46 +37,46 @@ def setupgrid(game: int):
         grid = Grid(6)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 2:
         vehicles = load_vehicles("Rushhour6x6_2.csv")
         grid = Grid(6)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 3:
         vehicles = load_vehicles("Rushhour6x6_3.csv")
         grid = Grid(6)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 4:
         vehicles = load_vehicles("Rushhour9x9_4.csv")
         grid = Grid(9)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 5:
         vehicles = load_vehicles("Rushhour9x9_5.csv")
         grid = Grid(9)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 6:
         vehicles = load_vehicles("Rushhour9x9_6.csv")
         grid = Grid(9)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 7:
         vehicles = load_vehicles("Rushhour12x12_7.csv")
         grid = Grid(12)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
