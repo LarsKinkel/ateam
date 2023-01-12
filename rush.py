@@ -1,4 +1,5 @@
 from vehicle import *
+from visualgrid import *
 from grid import Grid, setupgrid
 import csv
 
@@ -12,6 +13,6 @@ class RushHourGame:
 
 
 if __name__ == "__main__":
-
     filename = int(input("What game do you want to see/solve (1-7)?: "))
-    setupgrid(filename)
+    grid = setupgrid(filename)
+    visualize_grid(grid.grid, grid.dim)
