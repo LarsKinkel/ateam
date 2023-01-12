@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
+from matplotlib.colors import ListedColormap, BoundaryNorm
 import numpy as np
 
 # Make a 9x9 grid...
@@ -19,28 +19,25 @@ board = [[ 0,  1,  1,  2,  2,  2],
 # Reshape things into a 6x6 grid.
 # board = board.reshape((nrows, ncols))
 
-cmap = ListedColormap(['w',
-                        'k',
+norm = BoundaryNorm(np.unique(board), len(np.unique(board)) - 1)
+cmap = ListedColormap(['white',
+                        'khaki',
                         'lightblue',
                         'lightgreen',
                         'orange',
-                        'b',
+                        'blue',
                         'purple',
-                        'g',
+                        'lime',
                         'grey',
-                        'beige',
+                        'crimson',
                         'yellow',
                         'brown',
                         'darkgreen',
-                        # 'black',
-                        # 'cyan',
-                        # 'darkblue',
-                        # 'turquoise',
-                        'r'])
+                        'red'])
 
 row_labels = range(1,7)
 col_labels = range(1,7)
-plt.imshow(board, cmap = cmap)
+plt.imshow(board, cmap = cmap, norm = norm)
 plt.xticks(range(ncols), col_labels)
 plt.yticks(range(nrows), row_labels)
 plt.show()
