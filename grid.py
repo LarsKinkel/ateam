@@ -20,17 +20,16 @@ class Grid:
         elif vehicle.orientation == 'V':
             self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-    def move_vehicle_forward(self, vehicle):
-        # check of het horizontaal of verticaal moet
-        # check wat de coordinaten zijn
-        # schijf 1 hokje naar links of naar rechts
-        pass
-
-    def move_vehicle_backwards(self, vehicle):
-        # check of het horizontaal of verticaal moet
-        # check wat de coordinaten zijn
-        # schijf 1 hokje naar links of naar rechts
-        pass
+    def move_vehicle(self, vehicle):
+        # if vehicle is horizontal
+            # check coordinaten
+            # schuif naar links (als coordinaat niet 1 is) of naar rechts (als coordinaat niet 6, 9 of 12
+            # is, afhankelijk van hoe groot de grid is)
+        # if vehicle is vertical
+            # check coordinaten
+            # schuif naar boven (als coordinaat niet 1 is) of naar onder (als coordinaat niet 6, 9 of 12
+            # is, afhankelijk van hoe groot de grid is)
+            pass
 
     def __str__(self):
         return str(self.grid)
