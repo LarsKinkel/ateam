@@ -22,14 +22,18 @@ class Grid:
 
     def move_vehicle(self, vehicle):
         # if vehicle is horizontal
-            # check coordinaten
+        if vehicle.orientation == 'H':
             # schuif naar links (als coordinaat niet 1 is) of naar rechts (als coordinaat niet 6, 9 of 12
             # is, afhankelijk van hoe groot de grid is)
+            # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
+            np.savetxt('output.csv', (car, move), delimiter=',')
+
         # if vehicle is vertical
-            # check coordinaten
+        if vehicle.orientation == 'V':
             # schuif naar boven (als coordinaat niet 1 is) of naar onder (als coordinaat niet 6, 9 of 12
             # is, afhankelijk van hoe groot de grid is)
-            pass
+            # Safe move in output file
+            np.savetxt('output.csv', (car, move), delimiter=',')
 
     def __str__(self):
         return str(self.grid)
