@@ -12,11 +12,19 @@ class Grid:
     def __init__(self, dimension):
         self.grid = np.zeros((dimension, dimension))
 
+    #Misschien moeten deze methods (add vehicle, move) in de Rush Hour class, want daar programmeren wij het echte spel
+
     def add_vehicle(self, vehicle):
         if vehicle.orientation == 'H':
             self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
         elif vehicle.orientation == 'V':
             self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
+
+    def move_vehicle_forward(self, vehicle):
+        pass
+
+    def move_vehicle_backwards(self, vehicle):
+        pass
 
     def __str__(self):
         return str(self.grid)
