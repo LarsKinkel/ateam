@@ -21,11 +21,21 @@ class Grid:
         elif vehicle.orientation == 'V':
             self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-    def move_vehicle_forward(self, vehicle):
+    def move_vehicle(self, vehicle):
         pass
+    # if vehicle is horizontal
+    # if vehicle.orientation == 'H':
+        # schuif naar links (als coordinaat niet 1 is) of naar rechts (als coordinaat niet 6, 9 of 12
+        # is, afhankelijk van hoe groot de grid is)
+        # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
+        # np.savetxt('output.csv', (car, move), delimiter=',')
 
-    def move_vehicle_backwards(self, vehicle):
-        pass
+    # if vehicle is vertical
+    # if vehicle.orientation == 'V':
+        # schuif naar boven (als coordinaat niet 1 is) of naar onder (als coordinaat niet 6, 9 of 12
+        # is, afhankelijk van hoe groot de grid is)
+        # Safe move in output file
+        # np.savetxt('output.csv', (car, move), delimiter=',')
 
     def __str__(self):
         return str(self.grid)
