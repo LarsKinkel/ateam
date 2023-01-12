@@ -21,9 +21,15 @@ class Grid:
             self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
     def move_vehicle_forward(self, vehicle):
+        # check of het horizontaal of verticaal moet
+        # check wat de coordinaten zijn
+        # schijf 1 hokje naar links of naar rechts
         pass
 
     def move_vehicle_backwards(self, vehicle):
+        # check of het horizontaal of verticaal moet
+        # check wat de coordinaten zijn
+        # schijf 1 hokje naar links of naar rechts
         pass
 
     def __str__(self):
