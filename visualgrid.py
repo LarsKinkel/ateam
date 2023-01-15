@@ -18,26 +18,39 @@ import numpy as np
 
 # Reshape things into a 6x6 grid.
 # board = board.reshape((nrows, ncols))
-def visualize_grid(board, dimension):
-    norm = BoundaryNorm(np.unique(board), len(np.unique(board)) - 1)
-    cmap = ListedColormap(['white',
-                            'khaki',
-                            'lightblue',
-                            'lightgreen',
-                            'orange',
-                            'blue',
-                            'purple',
-                            'lime',
-                            'grey',
-                            'crimson',
-                            'yellow',
-                            'brown',
-                            'darkgreen',
-                            'red'])
 
-    row_labels = range(1,7)
-    col_labels = range(1,7)
-    plt.imshow(board, cmap = cmap, norm = norm)
+
+def visualize_grid(board: np.ndarray, dimension: int):
+    """Visualize the grid
+
+    Attributes:
+        board (np.ndarray[tuple[str,str,int]]): 2d array containing tuples of U1,U1,i
+        dimension (int): dimensions of board
+    """
+    norm = BoundaryNorm(
+        np.unique(board['name']),
+        len(np.unique(board['name'])) - 1)
+    cmap = ListedColormap([
+        'white',
+        'khaki',
+        'lightblue',
+        'lightgreen',
+        'orange',
+        'blue',
+        'purple',
+        'lime',
+        'grey',
+        'crimson',
+        'yellow',
+        'brown',
+        'darkgreen',
+        'red'
+    ])
+
+    row_labels = range(1, 7)
+    col_labels = range(1, 7)
+
+    plt.imshow(board['name'], cmap=cmap, norm=norm)
     plt.xticks(range(dimension), col_labels)
     plt.yticks(range(dimension), row_labels)
     plt.show()
