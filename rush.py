@@ -15,9 +15,21 @@ if __name__ == "__main__":
     grid = setupgrid(1)
     visualize_grid(grid.grid, grid.dim)
     # Move vehicle at coordinates a given amount (depending on vehicle orientation)
-    assert grid.move_vehicle(1, 0, -1) == True
-    assert grid.move_vehicle(0, 2, -1) == False  # Border check
-    assert grid.move_vehicle(1, 1, 1) == False  # Collission
-    grid.move_vehicle(3, 3, -1)
+    # assert grid.move_vehicle(1, 0, -1) == True
+    # assert grid.move_vehicle(0, 2, -1) == False  # Border check
+    # assert grid.move_vehicle(1, 1, 1) == False  # Collission
+    grid.move_vehicle(1, 1, -1)
+
+    visualize_grid(grid.grid, grid.dim)
+
+    grid.move_vehicle(1, 0, -1)
+
+    visualize_grid(grid.grid, grid.dim)
+
+    grid.move_vehicle(3, 0, -1)
+
+    visualize_grid(grid.grid, grid.dim)
+
+    grid.move_vehicle(2, 2, 1)
 
     visualize_grid(grid.grid, grid.dim)

@@ -27,7 +27,7 @@ class Grid:
         specific properties (vehicle number, orientation and length)
 
         Attributes:
-            vehicle (Vehicle): 
+            vehicle (Vehicle):
         """
         data = (vehicle.name, vehicle.orientation, vehicle.length)
         if vehicle.orientation == 'H':
@@ -46,7 +46,7 @@ class Grid:
 
         Attributes:
             vehicle: a tuple containing the name, orientation and length
-            delta: the number of spots to move the vehicle 
+            delta: the number of spots to move the vehicle
         """
         # Copy so we don't lose the vehicle properties when overriding
         vehicle = self.get_vehicle(row, col).copy()
