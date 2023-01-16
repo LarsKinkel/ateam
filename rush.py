@@ -18,4 +18,6 @@ if __name__ == "__main__":
     assert grid.move_vehicle(1, 0, -1) == True
     assert grid.move_vehicle(0, 2, -1) == False  # Border check
     assert grid.move_vehicle(1, 1, 1) == False  # Collission
+    grid.move_vehicle(3, 3, -1)
+
     visualize_grid(grid.grid, grid.dim)
