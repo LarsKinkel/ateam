@@ -80,7 +80,7 @@ class Grid:
             self.grid[new_row:new_row+vehicle[2], col] = vehicle
 
         # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
-        np.savetxt('output.csv', [[chr(vehicle[0]+64), delta]], delimiter=',')
+        np.savetxt('output.csv', (vehicle[0], delta), delimiter=',')
         return True
 
     def __str__(self):
