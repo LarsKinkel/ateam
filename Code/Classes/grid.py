@@ -83,7 +83,7 @@ class Grid:
         # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
         with open('output.csv', 'w') as f:
             writer = csv.writer(f)
-
+            writer.writerow(["car", "move"])
             writer.writerow((vehicle[0], delta))
         return True
 
