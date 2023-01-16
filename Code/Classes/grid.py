@@ -1,5 +1,5 @@
 import numpy as np
-from vehicle import *
+from Code.Classes.vehicle import *
 import csv
 
 
@@ -82,11 +82,8 @@ class Grid:
 
         with open('output.csv', 'a') as f:
             writer = csv.writer(f)
-<<<<<<< HEAD:Code/Classes/grid.py
-            writer.writerow(["car", "move"])
-=======
->>>>>>> 89de3535a1c1104a69b7d3166842d76c7145f423:grid.py
-            writer.writerow((vehicle[0], delta))
+            namecar = chr(int(vehicle[0])+64)
+            writer.writerow((namecar, delta))
         return True
 
     def __str__(self):
