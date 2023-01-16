@@ -1,6 +1,6 @@
-from vehicle import *
+from Code.Classes.vehicle import *
 from visualgrid import *
-from grid import Grid, setupgrid
+from Code.Classes.grid import Grid, setupgrid
 import csv
 
 
@@ -17,7 +17,7 @@ if __name__ == "__main__":
             dw.writeheader()
 
     grid = setupgrid(1)
-    print(grid.grid)
+    # print(grid.grid)
     visualize_grid(grid.grid, grid.dim)
     # Move vehicle at coordinates a given amount (depending on vehicle orientation)
     # assert grid.move_vehicle(1, 0, -1) == True
@@ -25,14 +25,11 @@ if __name__ == "__main__":
     # assert grid.move_vehicle(1, 1, 1) == False  # Collission
 
     grid.move_vehicle(1,0,-1)
+    
     visualize_grid(grid.grid, grid.dim)
 
-    grid.move_vehicle(1, 0, -1)
+    grid.move_vehicle(1, 1, -1)
 
     visualize_grid(grid.grid, grid.dim)
 
     grid.move_vehicle(3, 0, -1)
-    grid.move_vehicle(1,1,-1)
-    visualize_grid(grid.grid, grid.dim)
-
-    
