@@ -25,6 +25,7 @@ if __name__ == "__main__":
     # assert grid.move_vehicle(1, 1, 1) == False  # Collission
 
     grid.move_vehicle(1,0,-1)
+    
     visualize_grid(grid.grid, grid.dim)
 
     grid.move_vehicle(1, 1, -1)
