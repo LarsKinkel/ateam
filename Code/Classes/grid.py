@@ -28,7 +28,7 @@ class Grid:
         specific properties (vehicle number, orientation and length)
 
         Attributes:
-            vehicle (Vehicle): 
+            vehicle (Vehicle):
         """
         data = (vehicle.name, vehicle.orientation, vehicle.length)
         if vehicle.orientation == 'H':
@@ -47,7 +47,7 @@ class Grid:
 
         Attributes:
             vehicle: a tuple containing the name, orientation and length
-            delta: the number of spots to move the vehicle 
+            delta: the number of spots to move the vehicle
         """
         # Copy so we don't lose the vehicle properties when overriding
         vehicle = self.get_vehicle(row, col).copy()
@@ -80,10 +80,12 @@ class Grid:
             # Move the vehicle to the new location
             self.grid[new_row:new_row+vehicle[2], col] = vehicle
 
-        # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
-        with open('output.csv', 'w') as f:
+        with open('output.csv', 'a') as f:
             writer = csv.writer(f)
-
+<<<<<<< HEAD:Code/Classes/grid.py
+            writer.writerow(["car", "move"])
+=======
+>>>>>>> 89de3535a1c1104a69b7d3166842d76c7145f423:grid.py
             writer.writerow((vehicle[0], delta))
         return True
 
