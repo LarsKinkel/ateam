@@ -47,8 +47,8 @@ def visualize_grid(board: np.ndarray, dimension: int):
         'red'
     ])
 
-    row_labels = range(1, 7)
-    col_labels = range(1, 7)
+    row_labels = range(1, dimension + 1)
+    col_labels = range(1, dimension + 1)
 
     plt.imshow(board['name'], cmap=cmap, norm=norm)
     plt.xticks(range(dimension), col_labels)
