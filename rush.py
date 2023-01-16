@@ -27,15 +27,12 @@ if __name__ == "__main__":
     grid.move_vehicle(1,0,-1)
     visualize_grid(grid.grid, grid.dim)
 
-<<<<<<< HEAD
     grid.move_vehicle(1, 0, -1)
 
     visualize_grid(grid.grid, grid.dim)
 
     grid.move_vehicle(3, 0, -1)
-=======
     grid.move_vehicle(1,1,-1)
     visualize_grid(grid.grid, grid.dim)
 
     
->>>>>>> 89de3535a1c1104a69b7d3166842d76c7145f423
