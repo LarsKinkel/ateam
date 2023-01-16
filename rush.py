@@ -13,6 +13,7 @@ class RushHourGame:
 if __name__ == "__main__":
     # filename = int(input("What game do you want to see/solve (1-7)?: "))
     grid = setupgrid(1)
+    print(grid.grid)
     visualize_grid(grid.grid, grid.dim)
     # Move vehicle at coordinates a given amount (depending on vehicle orientation)
     # assert grid.move_vehicle(1, 0, -1) == True
@@ -32,4 +33,7 @@ if __name__ == "__main__":
 
     grid.move_vehicle(2, 2, 1)
 
-    visualize_grid(grid.grid, grid.dim)
+
+
+
+    

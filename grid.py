@@ -1,5 +1,6 @@
 import numpy as np
 from vehicle import *
+import csv
 
 
 class Grid:
@@ -80,7 +81,10 @@ class Grid:
             self.grid[new_row:new_row+vehicle[2], col] = vehicle
 
         # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
-        np.savetxt('output.csv', (vehicle[0], delta), delimiter=',')
+        with open('output.csv', 'w') as f:
+            writer = csv.writer(f)
+
+            writer.writerow((vehicle[0], delta))
         return True
 
     def __str__(self):
