@@ -1,5 +1,5 @@
 import numpy as np
-from vehicle import *
+from Code.Classes.vehicle import *
 import csv
 
 class Grid:
