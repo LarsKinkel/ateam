@@ -1,5 +1,5 @@
 import numpy as np
-from vehicle import *
+from Code.Classes.vehicle import *
 import csv
 
 class Grid:
@@ -21,22 +21,28 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-    def move_vehicle(self, row, col, delta):
+    def move_possible(self, row, col, delta):
         for vehicle in self.vehicles:
             if vehicle.row - 1 == row and vehicle.col - 1 == col:
                 if vehicle.orientation == 'H':
                     new_col = col + delta
+                    if delta == -1:
 
-                    # Validate grid borders
-                    if new_col < 0 or new_col + vehicle.length > self.dim:
+                        # Validate grid borders
+                        if new_col < 0 or self.grid[vehicle.row - 1, vehicle.col - 2] != 0 :
+                            return False
+
+                        return True
+
+                    elif new_col + vehicle.length > self.dim or self.grid[vehicle.row - 1, vehicle.col + vehicle.length] != 0:
                         return False
+                    return True
 
-                    # validate that we are not mounting another vehicle: # TODO:
 
-                    # Move the vehicle to the new location
-                    print(vehicle.row, vehicle.col)
-                    vehicle.set_new_col(new_col + 1)
-                    print(vehicle.row, vehicle.col)
+
+
+
+
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
 
@@ -45,18 +51,37 @@ class Grid:
                         return False
 
                     # validate that we are not mounting another vehicle: # TODO:
+                    if self.grid[vehicle.row - 2, vehicle.col - 1] != 0 or self.grid[vehicle.row + vehicle.length, vehicle.col] != 0:
+                        return False
 
-                    # Move the vehicle to the new location
+                return True
+
+
+
+
+
+    def move_vehicle(self, row, col, delta):
+        for vehicle in self.vehicles:
+            if vehicle.row - 1 == row and vehicle.col - 1 == col:
+                if vehicle.orientation == 'H':
+                    new_col = col + delta
+                    vehicle.set_new_col(new_col + 1)
+
+
+
+                elif vehicle.orientation == 'V':
+                    new_row = row - delta
                     vehicle.set_new_row(new_row + 1)
+
 
 
                 with open('output.csv', 'a') as f:
                     writer = csv.writer(f)
                     namecar = chr(int(vehicle.name)+64)
                     writer.writerow((namecar, delta))
-                return True
 
-    def get_grid(self):
+
+    def update_grid(self):
         self.grid = np.zeros((self.dim, self.dim))
         for vehicle in self.vehicles:
             if vehicle.orientation == 'H':
