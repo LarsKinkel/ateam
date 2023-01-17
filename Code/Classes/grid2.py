@@ -53,9 +53,6 @@ class Grid:
                 return True
 
 
-
-
-
     def move_vehicle(self, row, col, delta):
         for vehicle in self.vehicles:
             if vehicle.row - 1 == row and vehicle.col - 1 == col:
