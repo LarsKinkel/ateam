@@ -10,6 +10,7 @@ if __name__ == "__main__":
         grid.update_grid()
 
     print(grid.grid)
+
     print(grid.move_possible(1,1,-1))
     if grid.move_possible(1,1,-1):
         grid.move_vehicle(1,1,-1)
