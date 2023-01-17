@@ -39,10 +39,6 @@ class Grid:
                     return True
 
 
-
-
-
-
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
 
@@ -89,7 +85,7 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-        
+
 
 
 
