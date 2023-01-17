@@ -38,11 +38,6 @@ class Grid:
                         return False
                     return True
 
-
-
-
-
-
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
 
@@ -55,9 +50,6 @@ class Grid:
                         return False
 
                 return True
-
-
-
 
 
     def move_vehicle(self, row, col, delta):
