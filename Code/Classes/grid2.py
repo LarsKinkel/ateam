@@ -1,5 +1,6 @@
 import numpy as np
-from vehicle import *
+from Code.Classes.vehicle import *
+import csv
 
 class Grid:
     """
@@ -9,31 +10,63 @@ class Grid:
         vehicles: vehicles that are on the grid
         dimension: dimesion of the board
     """
-    def __init__(self, dimension):
+    def __init__(self, dimension, vehicles):
         self.grid = np.zeros((dimension, dimension))
+        self.vehicles = vehicles
+        self.dim = dimension
 
-    #Misschien moeten deze methods (add vehicle, move) in de Rush Hour class, want daar programmeren wij het echte spel
+        for vehicle in self.vehicles:
+            if vehicle.orientation == 'H':
+                self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
+            elif vehicle.orientation == 'V':
+                self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-    def add_vehicle(self, vehicle):
-        if vehicle.orientation == 'H':
-            self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
-        elif vehicle.orientation == 'V':
-            self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
+    def move_vehicle(self, row, col, delta):
+        for vehicle in self.vehicles:
+            if vehicle.row - 1 == row and vehicle.col - 1 == col:
+                if vehicle.orientation == 'H':
+                    new_col = col + delta
 
-    def move_vehicle(self, vehicle):
-        # If vehicle is horizontal
-        if vehicle.orientation == 'H':
-            # Move vehicle left (if coordinate is not 1) or right (if vehicle is not on the grid edge) 
+                    # Validate grid borders
+                    if new_col < 0 or new_col + vehicle.length > self.dim:
+                        return False
 
-            # Safe move in output file https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
-            np.savetxt('output.csv', (car, move), delimiter=',')
+                    # validate that we are not mounting another vehicle: # TODO:
 
-        # If vehicle is vertical
-        if vehicle.orientation == 'V':
-            # Move vehicle up (if coordinate is not 1) or down (if vehicle is not on the grid edge)
-            
-            # Safe move in output file
-            np.savetxt('output.csv', (car, move), delimiter=',')
+                    # Move the vehicle to the new location
+                    print(vehicle.row, vehicle.col)
+                    vehicle.set_new_col(new_col + 1)
+                    print(vehicle.row, vehicle.col)
+                elif vehicle.orientation == 'V':
+                    new_row = row - delta
+
+                    # Validate grid borders
+                    if new_row < 0 or new_row + vehicle.length > self.dim:
+                        return False
+
+                    # validate that we are not mounting another vehicle: # TODO:
+
+                    # Move the vehicle to the new location
+                    vehicle.set_new_row(new_row + 1)
+
+
+                with open('output.csv', 'a') as f:
+                    writer = csv.writer(f)
+                    namecar = chr(int(vehicle.name)+64)
+                    writer.writerow((namecar, delta))
+                return True
+
+    def get_grid(self):
+        self.grid = np.zeros((self.dim, self.dim))
+        for vehicle in self.vehicles:
+            if vehicle.orientation == 'H':
+                self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
+            elif vehicle.orientation == 'V':
+                self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
+
+        return self.grid
+
+
 
     def __str__(self):
         return str(self.grid)
@@ -42,49 +75,47 @@ class Grid:
 def setupgrid(game: int):
     if game == 1:
         vehicles = load_vehicles("Rushhour6x6_1.csv")
-        grid = Grid(6)
-        for vehicle in vehicles:
-            grid.add_vehicle(vehicle)
-        print(grid)
+        grid = Grid(6, vehicles)
+        return grid
 
     elif game == 2:
         vehicles = load_vehicles("Rushhour6x6_2.csv")
         grid = Grid(6)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 3:
         vehicles = load_vehicles("Rushhour6x6_3.csv")
         grid = Grid(6)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 4:
         vehicles = load_vehicles("Rushhour9x9_4.csv")
         grid = Grid(9)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 5:
         vehicles = load_vehicles("Rushhour9x9_5.csv")
         grid = Grid(9)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 6:
         vehicles = load_vehicles("Rushhour9x9_6.csv")
         grid = Grid(9)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
 
     elif game == 7:
         vehicles = load_vehicles("Rushhour12x12_7.csv")
         grid = Grid(12)
         for vehicle in vehicles:
             grid.add_vehicle(vehicle)
-        print(grid)
+        return grid
