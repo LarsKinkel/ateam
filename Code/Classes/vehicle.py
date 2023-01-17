@@ -16,6 +16,12 @@ class Vehicle:
         self.row = row
         self.length = length
 
+    def set_new_col(self, col):
+        self.col = col
+
+    def set_new_row(self, row):
+        self.row = row
+
 
 def load_vehicles(filename: str):
     with open(filename, 'r') as file:
