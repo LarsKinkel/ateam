@@ -16,6 +16,12 @@ class Vehicle:
         self.row = row
         self.length = length
 
+    def set_new_col(self, col):
+        self.col = col
+
+    def set_new_row(self, row):
+        self.row = row
+
 
 def load_vehicles(filename: str):
     with open(filename, 'r') as file:
@@ -28,9 +34,12 @@ def load_vehicles(filename: str):
             splits[-1] = splits[-1].strip()
 
             if len(splits[0]) > 1:
-                ascival = (ord(splits[0][0]) - 64) + (ord(splits[0][1]) - 64)
+                ascival = (ord(splits[0][0]) - 64) + (ord(splits[0][1]) - 37)
             elif len(splits[0]) == 1:
                 ascival = ord(splits[0]) - 64
+                if ascival == 24:
+                    ascival = 99
+
 
             vehicle = Vehicle(ascival, splits[1], int(splits[2]), int(splits[3]), int(splits[4]))
             vehicles.append(vehicle)

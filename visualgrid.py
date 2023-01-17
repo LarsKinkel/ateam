@@ -30,22 +30,54 @@ def visualize_grid(board: np.ndarray, dimension: int):
     norm = BoundaryNorm(
         np.unique(board['name']),
         len(np.unique(board['name'])) - 1)
-    cmap = ListedColormap([
-        'white',
-        'khaki',
-        'lightblue',
-        'lightgreen',
-        'orange',
-        'blue',
-        'purple',
-        'lime',
-        'grey',
-        'crimson',
-        'yellow',
-        'brown',
-        'darkgreen',
-        'red'
-    ])
+
+    if dimension == 6:
+        cmap = ListedColormap([
+            'white',
+            'khaki',
+            'lightblue',
+            'lightgreen',
+            'orange',
+            'blue',
+            'purple',
+            'lime',
+            'grey',
+            'crimson',
+            'yellow',
+            'brown',
+            'darkgreen',
+            'red'
+        ])
+    elif dimension == 9:
+        cmap = ListedColormap([
+            'white',
+            'khaki',
+            'lightblue',
+            'lightgreen',
+            'orange',
+            'blue',
+            'purple',
+            'lime',
+            'grey',
+            'crimson',
+            'yellow',
+            'brown',
+            'darkgreen',
+            'darkslategrey',
+            'magenta',
+            'pink',
+            'olivedrab',
+            'steelblue',
+            'navy',
+            'lavender',
+            'salmon',
+            'sandybrown',
+            'maroon',
+            'indianred',
+            'darkolivegreen',
+            'cyan',
+            'red'
+        ])
 
     row_labels = range(1, dimension + 1)
     col_labels = range(1, dimension + 1)
