@@ -60,11 +60,9 @@ class Grid:
                     vehicle.set_new_col(new_col + 1)
 
 
-
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
                     vehicle.set_new_row(new_row + 1)
-
 
 
                 with open('output.csv', 'a') as f:
@@ -81,7 +79,7 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-        
+
 
 
 
