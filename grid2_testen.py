@@ -1,7 +1,10 @@
 from Code.Classes.grid2 import *
-from Code.Algorithms.solve import *
+from Code.Algorithms.randomise import *
 
 if __name__ == "__main__":
+    with open("output.csv", 'w') as file:
+            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
+            dw.writeheader()
     # grid = setupgrid(3)
     # print(grid)
     #
