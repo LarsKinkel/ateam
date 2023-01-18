@@ -23,7 +23,7 @@ class Vehicle:
         self.row = row
 
     def __repr__(self):
-        return str((self.name, self.row, self.col))
+        return f'name: {self.name}, row: {self.row}, col: {self.col}'
 
 
 def load_vehicles(filename: str):

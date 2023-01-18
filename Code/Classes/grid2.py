@@ -21,6 +21,7 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
+
     def move_possible(self, row, col, delta):
         for vehicle in self.vehicles:
             if vehicle.row - 1 == row and vehicle.col - 1 == col:
@@ -79,7 +80,6 @@ class Grid:
                 self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
-
 
 
 
