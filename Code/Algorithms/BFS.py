@@ -34,10 +34,10 @@ class BFSalgorithm:
             queue = queue.Queue()
             queue.put("")                       # add begin state to queue
             while not queue.empty():
-                state = queue.get()             # get first from queue
+                state = queue.get()              # get first from queue
                 print(state)
                 if len(state) < depth:          # stop condition
                     for i in ['L', 'R']:            # for each possible action:
                         child = copy.deepcopy(state)    # deepcopy the state
                         child += i                      # make new child
-                        queue.put(child)                # add new child 
+                        queue.put(child)                # add new child

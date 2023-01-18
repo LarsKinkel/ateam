@@ -45,7 +45,7 @@ class Randomalgorithm:
                     # print(grid)
             except:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
-                1/0
+            
             total_moves += 1
 
             # print the number of iterations at every 10.000th iteration

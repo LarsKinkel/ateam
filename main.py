@@ -15,9 +15,9 @@ class RushHourGame:
 
 if __name__ == "__main__":
 
-    # with open("output.csv", 'w') as file:
-    #         dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
-    #         dw.writeheader()
+    with open("output.csv", 'w') as file:
+            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
+            dw.writeheader()
 
     # grid = setupgrid(6)
     # visualize_grid(grid.grid, grid.dim)
