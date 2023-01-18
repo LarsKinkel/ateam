@@ -18,9 +18,9 @@ class Randomalgorithm:
         for vehicle in self.vehicles:
             if vehicle.name == 99:
                 redcar = vehicle
-                print(redcar)
+                # print(redcar)
 
-        count = 1
+        total_moves = 0
         # Move random cars untill coordinates of red car is 2,4
         while redcar.col != 5:
 
@@ -38,9 +38,13 @@ class Randomalgorithm:
             except:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
                 1/0
-            count += 1
-            if count == 1000:
-                print("nu bij duizend")
+            total_moves += 1
 
-        print(count)
-        print(redcar)
+            # print the number of iterations at every 10.000th iteration
+            if total_moves % 20000 == 0:
+                print(f"{total_moves} moves made")
+
+        print(f'Solution found after {total_moves} moves. ')
+        print("The grid looks as follows at solved state:")
+        print(grid)
+        return total_moves
