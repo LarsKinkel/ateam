@@ -4,7 +4,8 @@ import csv
 
 class Grid:
     """
-    Grid object that states the size of the board.
+    Grid object that states the size of the board
+    and stores the vehicles on the board.
 
     Attributes:
         vehicles: vehicles that are on the grid
@@ -21,7 +22,15 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
+
     def move_possible(self, row, col, delta):
+        """
+        Function that checks if a move is possible
+
+        Pre:    Insert the row, column and delta of the move
+        Post:   Returns True if move is possible, returns False is a move is not move_possible,
+                returns None if the car is not found.
+        """
         for vehicle in self.vehicles:
             if vehicle.row - 1 == row and vehicle.col - 1 == col:
                 if vehicle.orientation == 'H':
@@ -34,39 +43,59 @@ class Grid:
 
                         return True
 
-                    elif new_col + vehicle.length > self.dim or self.grid[vehicle.row - 1, vehicle.col + vehicle.length] != 0:
-                        return False
-                    return True
+                    elif delta == 1:
+
+                        if new_col + vehicle.length > self.dim or self.grid[vehicle.row - 1, vehicle.col - 1 + vehicle.length] != 0:
+                            return False
+
+                        return True
+
 
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
+                    if delta == -1:
 
-                    # Validate grid borders
-                    if new_row < 0 or new_row + vehicle.length > self.dim:
-                        return False
+                        # validate that we are not mounting another vehicle:
+                        if new_row + vehicle.length > self.dim or self.grid[vehicle.row - 1 + vehicle.length, vehicle.col - 1] != 0:
+                            return False
 
-                    # validate that we are not mounting another vehicle: # TODO:
-                    if self.grid[vehicle.row - 2, vehicle.col - 1] != 0 or self.grid[vehicle.row + vehicle.length, vehicle.col] != 0:
-                        return False
+                    elif delta == 1:
 
-                return True
+                        # Validate grid borders
+                        if new_row < 0 or self.grid[vehicle.row - 2, vehicle.col - 1] != 0:
+                            return False
+
+                        return True
+
+                    return True
 
 
     def move_vehicle(self, row, col, delta):
+        """
+        Function that changes the row and column of a vehicle object, according to a move.
+
+        Pre:    Insert the row, column and delta of the move
+        Post:   After running the function, the row and column of the vehicle
+                object are changed according to the move. Every move is written in
+                the output.csv file.
+        """
+
+        # loop through vehicles, and find the vehicle that is on the inserted coordinates
         for vehicle in self.vehicles:
             if vehicle.row - 1 == row and vehicle.col - 1 == col:
+
+                # distinguish cases for different orientation of the vehicle
+                # use set_new_... method to assign new row or col.
                 if vehicle.orientation == 'H':
                     new_col = col + delta
                     vehicle.set_new_col(new_col + 1)
-
 
 
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
                     vehicle.set_new_row(new_row + 1)
 
-
-
+                # keep track of the moves in the outputfile
                 with open('output.csv', 'a') as f:
                     writer = csv.writer(f)
                     namecar = chr(int(vehicle.name)+64)
@@ -74,6 +103,13 @@ class Grid:
 
 
     def update_grid(self):
+        """
+        Method that can be used to update the grid after a move has been made.
+
+        Pre:    Using the grid and vehicles list of the object.
+        Post:   Grid is updated if a move has been made according to the new
+                vehicles list.
+        """
         self.grid = np.zeros((self.dim, self.dim))
         for vehicle in self.vehicles:
             if vehicle.orientation == 'H':
@@ -81,15 +117,18 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
-        
-
-
 
     def __str__(self):
         return str(self.grid)
 
 
 def setupgrid(game: int):
+    """
+    Makes the grid object for the given game.
+
+    Pre:    Number of the game to be solved.
+    Post:   Grid object is returned that contains the chosen game. 
+    """
     if game == 1:
         vehicles = load_vehicles("Rushhour6x6_1.csv")
         grid = Grid(6, vehicles)

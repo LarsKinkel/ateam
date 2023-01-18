@@ -22,6 +22,9 @@ class Vehicle:
     def set_new_row(self, row):
         self.row = row
 
+    def __repr__(self):
+        return f'name: {self.name}, row: {self.row}, col: {self.col}'
+
 
 def load_vehicles(filename: str):
     with open(filename, 'r') as file:
