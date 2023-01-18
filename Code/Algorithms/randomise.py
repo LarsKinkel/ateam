@@ -21,8 +21,16 @@ class Randomalgorithm:
                 # print(redcar)
 
         total_moves = 0
-        # Move random cars untill coordinates of red car is 2,4
-        while redcar.col != 5:
+
+        # Move random cars untill red car is in the right column for the different dimensions
+        if self.grid.dim == 6:
+            solve_col = 5
+        elif self.grid.dim == 9:
+            solve_col = 8
+        elif self.grid.dim == 12:
+            solve_col = 11
+
+        while redcar.col != solve_col:
 
             random_vehicle = random.choice(self.vehicles)
 
