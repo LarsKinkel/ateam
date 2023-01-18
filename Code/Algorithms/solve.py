@@ -22,21 +22,19 @@ class Randomalgorithm:
 
         count = 1
         # Move random cars untill coordinates of red car is 2,4
-        while redcar.row != 2 and redcar.col != 4:
+        while redcar.col != 5:
 
             random_vehicle = random.choice(self.vehicles)
 
             list = [-1, 1]
             random_delta = random.choice(list)
-            # print(self.vehicles)
+
             try:
                 if grid.move_possible(random_vehicle.row - 1, random_vehicle.col - 1, random_delta):
-                    print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
-                # print(random_vehicle.row - 1, random_vehicle.col -1 , random_delta)
 
                     grid.move_vehicle(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
                     grid.update_grid()
-                    print(grid)
+                    # print(grid)
             except:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
                 1/0
@@ -45,3 +43,4 @@ class Randomalgorithm:
                 print("nu bij duizend")
 
         print(count)
+        print(redcar)

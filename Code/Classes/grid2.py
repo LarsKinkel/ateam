@@ -35,23 +35,31 @@ class Grid:
 
                         return True
 
-                    elif new_col + vehicle.length > self.dim or self.grid[vehicle.row - 1, vehicle.col + vehicle.length] != 0:
-                        return False
-                    return True
+                    elif delta == 1:
+
+                        if new_col + vehicle.length > self.dim or self.grid[vehicle.row - 1, vehicle.col - 1 + vehicle.length] != 0:
+                            return False
+
+                        return True
 
 
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
+                    if delta == -1:
 
-                    # Validate grid borders
-                    if new_row < 0 or new_row + vehicle.length > self.dim:
-                        return False
+                        # validate that we are not mounting another vehicle:
+                        if new_row + vehicle.length > self.dim or self.grid[vehicle.row - 1 + vehicle.length, vehicle.col - 1] != 0:
+                            return False
 
-                    # validate that we are not mounting another vehicle: # TODO:
-                    if self.grid[vehicle.row - 2, vehicle.col - 1] != 0 or self.grid[vehicle.row + vehicle.length, vehicle.col] != 0:
-                        return False
+                    elif delta == 1:
 
-                return True
+                        # Validate grid borders
+                        if new_row < 0 or self.grid[vehicle.row - 2, vehicle.col - 1] != 0:
+                            return False
+
+                        return True
+
+                    return True
 
 
     def move_vehicle(self, row, col, delta):
