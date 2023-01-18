@@ -2,7 +2,9 @@ from Code.Classes.vehicle import *
 from visualgrid import *
 from Code.Classes.grid2 import *
 from Code.Algorithms.randomise import *
+import matplotlib.pyplot as plt
 import csv
+
 
 
 class RushHourGame:
@@ -13,12 +15,14 @@ class RushHourGame:
 
 if __name__ == "__main__":
 
-    with open("output.csv", 'w') as file:
-            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
-            dw.writeheader()
+    # with open("output.csv", 'w') as file:
+    #         dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
+    #         dw.writeheader()
 
     # grid = setupgrid(6)
     # visualize_grid(grid.grid, grid.dim)
+
+
 
     # --------------------------- Random reassignment --------------------------
     # Random algorithm that solves the rush hour game,
@@ -28,7 +32,7 @@ if __name__ == "__main__":
     count_rsolutions = 0
 
     # keep running the algorithm until ... solutions are found
-    while count_rsolutions < 10:
+    while count_rsolutions < 100:
         # when starting and after finding solution, setup the initial state of the game
         grid = setupgrid(1)
         vehicles = grid.vehicles
@@ -50,3 +54,5 @@ if __name__ == "__main__":
     print()
     print(f"{min(all_random_solutions)} moves until solution.")
     print()
+    plt.hist(all_random_solutions, bins = 50)
+    plt.show()
