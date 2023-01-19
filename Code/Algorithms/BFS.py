@@ -32,12 +32,12 @@ class BFSalgorithm:
 
             depth = ...                         # no deeper than 'depth'
             queue = queue.Queue()
-            queue.put("")                       # add begin state to queue
+            queue.put(grid)                       # add begin state to queue
             while not queue.empty():
-                state = queue.get()             # get first from queue
+                state = queue.get()              # get first from queue
                 print(state)
-                if len(state) < depth:          # stop condition
+                if redcar.col != solve_col:          # stop condition
                     for i in ['L', 'R']:            # for each possible action:
                         child = copy.deepcopy(state)    # deepcopy the state
                         child += i                      # make new child
-                        queue.put(child)                # add new child 
+                        queue.put(child)                # add new child
