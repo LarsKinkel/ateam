@@ -2,6 +2,7 @@ from Code.Classes.vehicle import *
 from visualgrid import *
 from Code.Classes.grid2 import *
 from Code.Algorithms.randomise import *
+from Code.Algorithms.BFS import *
 import matplotlib.pyplot as plt
 import csv, copy
 import os
@@ -41,18 +42,21 @@ if __name__ == '__main__':
     #         dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
     #         dw.writeheader()
 
-    print("State inserted is:")
-    print()
+    # print("State inserted is:")
+    # print()
     BFSgrid = setupgrid(1)
     print(BFSgrid)
-    print()
+    # print()
+    #
+    # print("All next states from state inserted are: ")
+    # print()
+    #
+    # next_states = find_all_next_states(BFSgrid)
+    # for state in next_states:
+    #     print(state)
+    #     print()
+    #
+    # print(f"Total of {len(next_states)} states are possible after beginstate")
 
-    print("All next states from state inserted are: ")
-    print()
-
-    next_states = find_all_next_states(BFSgrid)
-    for state in next_states:
-        print(state)
-        print()
-
-    print(f"Total of {len(next_states)} states are possible after beginstate")
+    algo = BFSalgorithm(BFSgrid, BFSgrid.vehicles)
+    algo.solve()

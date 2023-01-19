@@ -1,7 +1,9 @@
-import queue, copy
+import copy
 import sys
 sys.path.append("/Code/Classes")
 from Code.Classes.grid2 import *
+from test_BFS import *
+from queue import Queue
 
 class BFSalgorithm:
     def __init__(self, grid, vehicles):
@@ -30,16 +32,23 @@ class BFSalgorithm:
             solve_col = 11
 
         # depth = ...                         # no deeper than 'depth'
-        queue = queue.Queue()
+        queue = Queue()
         seen_states = set()
-        queue.put(grid)                       # add begin state to queue
+        queue.put(self.grid)                       # add begin state to queue
         while not queue.empty():
             state = queue.get()              # get first from queue
-            print(state)
+            # print(state)
             while redcar.col != solve_col:      # stop condition
-                if next_state not in seen_states:
-                    seen_states.add(next_state)
-                    queue.append(next_state)
+                for next_state in find_all_next_states(self.grid):
+                    if next_state not in seen_states:
+                        seen_states.add(next_state)
+                        queue.put(next_state)
+                        self.grid = next_state
+                    else:
+                        pass
+
+            print(self.grid)
+
 
                 # for i in ['L', 'R']:            # for each possible action:
                 #     child = copy.deepcopy(state)    # deepcopy the state
