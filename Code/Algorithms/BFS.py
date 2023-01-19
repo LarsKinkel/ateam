@@ -6,14 +6,13 @@ from test_BFS import *
 from queue import Queue
 
 class BFSalgorithm:
-    def __init__(self, grid, vehicles):
-        self.vehicles = vehicles
-        self.grid = grid
+    def __init__(self, grid):
+        self.grid = copy.deepcopy(grid)
+        self.vehicles = self.grid.vehicles
 
 
 
     def solve(self):
-        grid = self.grid
 
         # Find red car
         for vehicle in self.vehicles:
@@ -37,17 +36,20 @@ class BFSalgorithm:
         queue.put(self.grid)                       # add begin state to queue
         while not queue.empty():
             state = queue.get()              # get first from queue
-            # print(state)
-            while redcar.col != solve_col:      # stop condition
-                for next_state in find_all_next_states(self.grid):
-                    if next_state not in seen_states:
-                        seen_states.add(next_state)
-                        queue.put(next_state)
-                        self.grid = next_state
-                    else:
-                        pass
+            print(state)
+            if redcar.col == solve_col:      # stop condition
+                print("FOUNd")
+                print(self.grid)
+                break
 
-            print(self.grid)
+            for next_state in find_all_next_states(state):
+                if next_state not in seen_states:
+                    seen_states.add(next_state)
+                    queue.put(next_state)
+                    self.grid = copy.deepcopy(next_state)
+                    # print(self.grid)
+
+
 
 
                 # for i in ['L', 'R']:            # for each possible action:
