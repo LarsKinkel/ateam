@@ -9,6 +9,7 @@ class BFSalgorithm:
         self.grid = grid
 
 
+
     def solve(self):
         grid = self.grid
 
@@ -28,16 +29,19 @@ class BFSalgorithm:
         elif self.grid.dim == 12:
             solve_col = 11
 
-        while redcar.col != solve_col:
+        # depth = ...                         # no deeper than 'depth'
+        queue = queue.Queue()
+        seen_states = set()
+        queue.put(grid)                       # add begin state to queue
+        while not queue.empty():
+            state = queue.get()              # get first from queue
+            print(state)
+            while redcar.col != solve_col:      # stop condition
+                if next_state not in seen_states:
+                    seen_states.add(next_state)
+                    queue.append(next_state)
 
-            depth = ...                         # no deeper than 'depth'
-            queue = queue.Queue()
-            queue.put(grid)                       # add begin state to queue
-            while not queue.empty():
-                state = queue.get()              # get first from queue
-                print(state)
-                if redcar.col != solve_col:          # stop condition
-                    for i in ['L', 'R']:            # for each possible action:
-                        child = copy.deepcopy(state)    # deepcopy the state
-                        child += i                      # make new child
-                        queue.put(child)                # add new child
+                # for i in ['L', 'R']:            # for each possible action:
+                #     child = copy.deepcopy(state)    # deepcopy the state
+                #     child += i                      # make new child
+                #     queue.put(child)                # add new child
