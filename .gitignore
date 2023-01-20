@@ -130,3 +130,9 @@ dmypy.json
 
 # Output file
 output.csv
+
+# Mac OS folder meta data
+.DS_Store
+
+# Rhistory file
+.Rhistory
