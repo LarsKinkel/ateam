@@ -27,7 +27,7 @@ class Vehicle:
 
 
 def load_vehicles(filename: str):
-    with open(filename, 'r') as file:
+    with open("gameboards/"+filename, 'r') as file:
         header = file.readline().split(',')
         header[-1] = header[-1].strip()
 
