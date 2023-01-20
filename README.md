@@ -11,4 +11,18 @@ We also implemented an algorithm to find the fastest way of solving the puzzle. 
 
 ## Set up
 This codebase is written in Python 3.8.10. In requirements.txt all the packages that are needed to run this code are listed. You can easily install these packages via:
-<pre><code>This is a code block.</code></pre>
+<pre><code>pip install -r requirements.txt</code></pre>
+
+## Use
+You can actually run the program by typing the following in the terminal:
+<pre><code>python3 main.py</code></pre>
+In main.py you can also adjust the number of solutions you want to get and which puzzle you want to solve. As output the program will tell you the number of moves each solution has cost, which solution was the fastest and automatically generate a histogram with this data.
+
+## Structure
+In the next part we will shortly explain the most important directories and files of this project:
+<ul><strong>/Code</strong>: contains all the code of the project
+    <li><strong>/Code/Algorithms</strong>: contains all the code for the different algorithms</li>
+    <li><strong>/Code/Classes</strong>: contains the necessary classes for this project</li>
+</ul>
+
+
