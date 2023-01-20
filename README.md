@@ -1,4 +1,4 @@
-# A-Team (with A for 'Algorithm')
+# The A-Team (with A for 'Algorithm')
 ## A solving algorithm for the Rush Hour game 
 Rush hour is a sliding block logic puzzle, invented by Nob Yoshigahara in the 1970s. Classically, the game consists of a 6x6 grid with up to 16 vehicles (12 cars and 4 trucks) with each a different color. Vehicles can only be moved along a straigt line on the grid, but cannot rotate. The goal of the game is to get the red car out through the exit of the board on the right, by moving the other vehicles out of its way. 
 
