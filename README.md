@@ -2,7 +2,7 @@
 ## A solving algorithm for the Rush Hour game 
 Rush hour is a sliding block logic puzzle, invented by Nob Yoshigahara in the 1970s. Classically, the game consists of a 6x6 grid with up to 16 vehicles (12 cars and 4 trucks) with each a different color. Vehicles can only be moved along a straigt line on the grid, but cannot rotate. The goal of the game is to get the red car out through the exit of the board on the right, by moving the other vehicles out of its way. 
 
-This repository contains a Python implementation of the board game Rush Hour. There are 7 different starting positions, of which 3 are a 6x6 grid, 3 are a 9x9 grid and 1 12x12 grid.
+This repository contains a Python implementation of the board game Rush Hour. There are 7 different starting positions, of which 3 are a 6x6 grid, 3 are a 9x9 grid and 1 12x12 grid. Cars are a 2x1 size and trucks are 3x1. Once the vehicles are positioned in their starting position, they cannot rotate, but only move forwards and backwards.
 
 We also implemented an algorithm to find the fastest way of solving the puzzle. We implemented a:
 <ul>
