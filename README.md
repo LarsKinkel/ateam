@@ -22,7 +22,7 @@ In requirements.txt all the packages that are needed to run this code are listed
 ## Use
 You can actually run the program by typing the following in the terminal:
 <pre><code>python3 main.py</code></pre>
-In main.py you can also adjust the number of solutions you want to get and which puzzle you want to solve. As output the program will tell you the number of moves each solution has cost, which solution was the fastest and automatically generate a histogram with this data.
+In main.py you can also adjust the number of solutions you want to get and which puzzle you want to solve. As output, the program will return you the number of moves each solution has cost, which solution was the fastest and automatically generate and show a histogram with this data.
 
 ## Structure
 In the next part we will shortly explain the most important directories and files of this project:
