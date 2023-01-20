@@ -34,8 +34,8 @@ class Randomalgorithm:
 
             random_vehicle = random.choice(self.vehicles)
 
-            list = [-1, 1]
-            random_delta = random.choice(list)
+            moves = [-1, 1]
+            random_delta = random.choice(moves)
 
             try:
                 if grid.move_possible(random_vehicle.row - 1, random_vehicle.col - 1, random_delta):
@@ -45,7 +45,7 @@ class Randomalgorithm:
                     # print(grid)
             except:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
-            
+
             total_moves += 1
 
             # print the number of iterations at every 10.000th iteration

@@ -28,11 +28,6 @@ if __name__ == "__main__":
     # --------------------------- Random reassignment --------------------------
     # Random algorithm that solves the rush hour game,
 
-    # Delete the existing CSV file:
-    file = 'output.csv'
-    if(os.path.exists(file) and os.path.isfile(file)):
-        os.remove(file)
-
     # create empty list to store random solutions
     all_random_solutions = []
     count_rsolutions = 0

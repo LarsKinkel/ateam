@@ -1,16 +1,18 @@
-import queue, copy
+import copy
 import sys
 sys.path.append("/Code/Classes")
 from Code.Classes.grid2 import *
+from test_BFS import *
+from queue import Queue
 
 class BFSalgorithm:
-    def __init__(self, grid, vehicles):
-        self.vehicles = vehicles
-        self.grid = grid
+    def __init__(self, grid):
+        self.grid = copy.deepcopy(grid)
+        self.vehicles = self.grid.vehicles
+
 
 
     def solve(self):
-        grid = self.grid
 
         # Find red car
         for vehicle in self.vehicles:
@@ -28,16 +30,29 @@ class BFSalgorithm:
         elif self.grid.dim == 12:
             solve_col = 11
 
-        while redcar.col != solve_col:
+        # depth = ...                         # no deeper than 'depth'
+        queue = Queue()
+        seen_states = set()
+        queue.put(self.grid)                       # add begin state to queue
+        while not queue.empty():
+            state = queue.get()              # get first from queue
+            print(state)
+            if redcar.col == solve_col:      # stop condition
+                print("FOUNd")
+                print(self.grid)
+                break
 
-            depth = ...                         # no deeper than 'depth'
-            queue = queue.Queue()
-            queue.put(grid)                       # add begin state to queue
-            while not queue.empty():
-                state = queue.get()              # get first from queue
-                print(state)
-                if redcar.col != solve_col:          # stop condition
-                    for i in ['L', 'R']:            # for each possible action:
-                        child = copy.deepcopy(state)    # deepcopy the state
-                        child += i                      # make new child
-                        queue.put(child)                # add new child
+            for next_state in find_all_next_states(state):
+                if next_state not in seen_states:
+                    seen_states.add(next_state)
+                    queue.put(next_state)
+                    self.grid = copy.deepcopy(next_state)
+                    # print(self.grid)
+
+
+
+
+                # for i in ['L', 'R']:            # for each possible action:
+                #     child = copy.deepcopy(state)    # deepcopy the state
+                #     child += i                      # make new child
+                #     queue.put(child)                # add new child
