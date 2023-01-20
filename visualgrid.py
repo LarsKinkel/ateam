@@ -21,7 +21,7 @@ import numpy as np
 
 
 def visualize_grid(board: np.ndarray, dimension: int):
-    """Visualize the grid
+    """ Function to visualize the grid.
 
     Attributes:
         board (np.ndarray[tuple[str,str,int]]): 2d array containing tuples of U1,U1,i

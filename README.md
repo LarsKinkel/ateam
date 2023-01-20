@@ -11,13 +11,8 @@ We also implemented an algorithm to find the fastest way of solving the puzzle. 
 </ul>
 
 ## Set up
-This codebase is written in Python 3.8.10. There are no extra packages needed to run this code.
-
-<!-- 
-Ik weet ff niet zeker of we extra packages hebben gebruikt maar als we die wel hebben gebruikt moeten we dat ff in een requirements.txt zetten en dan dit erbij zetten:
-
-In requirements.txt all the packages that are needed to run this code are listed. You can easily install these packages via:
-<pre><code>pip install -r requirements.txt</code></pre> -->
+This codebase is written in Python 3.8.10. In requirements.txt all the packages that are needed to run this code are listed. You can easily install these packages via:
+<pre><code>pip install -r requirements.txt</code></pre>
 
 ## Use
 You can actually run the program by typing the following in the terminal:
