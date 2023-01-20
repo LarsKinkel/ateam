@@ -10,8 +10,13 @@ We also implemented an algorithm to find the fastest way of solving the puzzle. 
 </ul>
 
 ## Set up
-This codebase is written in Python 3.8.10. In requirements.txt all the packages that are needed to run this code are listed. You can easily install these packages via:
-<pre><code>pip install -r requirements.txt</code></pre>
+This codebase is written in Python 3.8.10. There are no extra packages needed to run this code.
+
+<!-- 
+Ik weet ff niet zeker of we extra packages hebben gebruikt maar als we die wel hebben gebruikt moeten we dat ff in een requirements.txt zetten en dan dit erbij zetten:
+
+In requirements.txt all the packages that are needed to run this code are listed. You can easily install these packages via:
+<pre><code>pip install -r requirements.txt</code></pre> -->
 
 ## Use
 You can actually run the program by typing the following in the terminal:
@@ -29,12 +34,11 @@ In the next part we will shortly explain the most important directories and file
 </ul>
 
 ## Authors
-<ul> Lars Kinkel </ul>
-
 <ul>
     <li>Jio Macaya</li>
     <li>Laura Outhuis</li>
     <li>Lars Kinkel</li>
 </ul>
 
-
+## Acknowlegdements
+We would like to thank our course coordinators, Quinten van der Post and Wouter Vrielink, to provide us with the necessary knowledge we needed to complete our assignment. We would also like to thank our mentors, Lars Veefkind and Yvette Schorder, who guided and advised us greatly during the making of this project.
