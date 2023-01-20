@@ -38,7 +38,7 @@ if __name__ == "__main__":
     count_rsolutions = 0
 
     # keep running the algorithm until ... solutions are found
-    while count_rsolutions < 1:
+    while count_rsolutions < 10:
         # when starting and after finding solution, setup the initial state of the game
         grid = setupgrid(1)
         vehicles = grid.vehicles

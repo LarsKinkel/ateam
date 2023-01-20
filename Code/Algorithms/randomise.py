@@ -49,7 +49,7 @@ class Randomalgorithm:
             total_moves += 1
 
             # print the number of iterations at every 10.000th iteration
-            if total_moves % 50000 == 0:
+            if total_moves % 10000 == 0:
                 print(f"{total_moves} moves made")
 
         print(f'Solution found after {total_moves} moves. ')
