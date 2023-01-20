@@ -22,8 +22,10 @@ In main.py you can also adjust the number of solutions you want to get and which
 In the next part we will shortly explain the most important directories and files of this project:
 <ul>
     <li><strong>/Code</strong>: contains all the code of the project</li>
-        <li><strong>/Code/Algorithms</strong>: contains all the code for the different algorithms</li>
-        <li><strong>/Code/Classes</strong>: contains the necessary classes for this project</li>
+    <ul>
+    <li><strong>/Code/Algorithms</strong>: contains all the code for the different algorithms</li>
+    <li><strong>/Code/Classes</strong>: contains the necessary classes for this project</li>
+    </ul>
 </ul>
 
 
