@@ -31,6 +31,7 @@ def visualize_grid(board: np.ndarray, dimension: int):
         np.unique(board['name']),
         len(np.unique(board['name'])) - 1)
 
+    # For a 6x6 grid
     if dimension == 6:
         cmap = ListedColormap([
             'white',
@@ -48,6 +49,7 @@ def visualize_grid(board: np.ndarray, dimension: int):
             'darkgreen',
             'red'
         ])
+    # For a 9x9 grid
     elif dimension == 9:
         cmap = ListedColormap([
             'white',
