@@ -28,4 +28,13 @@ In the next part we will shortly explain the most important directories and file
     </ul>
 </ul>
 
+## Authors
+<ul> Lars Kinkel </ul>
+
+<ul>
+    <li>Jio Macaya</li>
+    <li>Laura Outhuis</li>
+    <li>Lars Kinkel</li>
+</ul>
+
 
