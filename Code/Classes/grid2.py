@@ -15,12 +15,15 @@ class Grid:
         self.grid = np.zeros((dimension, dimension))
         self.vehicles = vehicles
         self.dim = dimension
+        self.visual = []
 
         for vehicle in self.vehicles:
             if vehicle.orientation == 'H':
                 self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
+        
+        self.visual.append(self.grid)
 
 
     def move_possible(self, row: int, col: int, delta: int):
@@ -100,6 +103,8 @@ class Grid:
                 self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
+
+        self.visual.append(self.grid)
 
 
     def __str__(self):
