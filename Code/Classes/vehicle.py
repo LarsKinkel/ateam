@@ -48,7 +48,3 @@ def load_vehicles(filename: str):
             vehicles.append(vehicle)
 
     return vehicles
-
-# toevoegen dat een vehicle een bepaalde coordinaat heeft
-# (bij horizontale voertuigen het linker blokje en bij verticale
-# voertuigen de bovenste)

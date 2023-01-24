@@ -22,7 +22,7 @@ class Grid:
                 self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
-        
+
         self.visual.append(self.grid)
 
 
@@ -85,7 +85,10 @@ class Grid:
                 # Keep track of the moves in the outputfile
                 with open('output.csv', 'a') as f:
                     writer = csv.writer(f)
-                    namecar = chr(int(vehicle.name)+64)
+                    if vehicle.name == 99:
+                        namecar = chr(24)
+                    else:
+                        namecar = chr(int(vehicle.name)+64)
                     writer.writerow((namecar, delta))
 
 
@@ -116,7 +119,7 @@ def setupgrid(game: int):
     Makes the grid object for the given game.
 
     Pre:    Number of the game to be solved.
-    Post:   Grid object is returned that contains the chosen game. 
+    Post:   Grid object is returned that contains the chosen game.
     """
     if game == 1:
         vehicles = load_vehicles("Rushhour6x6_1.csv")
