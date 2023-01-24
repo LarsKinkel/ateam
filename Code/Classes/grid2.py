@@ -11,10 +11,11 @@ class Grid:
         vehicles: vehicles that are on the grid
         dimension: dimesion of the board
     """
-    def __init__(self, dimension, vehicles):
+    def __init__(self, dimension: int, vehicles):
         self.grid = np.zeros((dimension, dimension))
         self.vehicles = vehicles
         self.dim = dimension
+        self.visual = []
 
         for vehicle in self.vehicles:
             if vehicle.orientation == 'H':
@@ -22,8 +23,10 @@ class Grid:
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
+        self.visual.append(self.grid)
 
-    def move_possible(self, row, col, delta):
+
+    def move_possible(self, row: int, col: int, delta: int):
         """
         Function that checks if a move is possible
 
@@ -36,41 +39,29 @@ class Grid:
                 if vehicle.orientation == 'H':
                     new_col = col + delta
                     if delta == -1:
-
                         # Validate grid borders
                         if new_col < 0 or self.grid[vehicle.row - 1, vehicle.col - 2] != 0 :
                             return False
-
                         return True
-
                     elif delta == 1:
-
                         if new_col + vehicle.length > self.dim or self.grid[vehicle.row - 1, vehicle.col - 1 + vehicle.length] != 0:
                             return False
-
                         return True
-
-
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
                     if delta == -1:
-
-                        # validate that we are not mounting another vehicle:
+                        # Validate that we are not mounting another vehicle:
                         if new_row + vehicle.length > self.dim or self.grid[vehicle.row - 1 + vehicle.length, vehicle.col - 1] != 0:
                             return False
-
                     elif delta == 1:
-
                         # Validate grid borders
                         if new_row < 0 or self.grid[vehicle.row - 2, vehicle.col - 1] != 0:
                             return False
-
                         return True
-
                     return True
 
 
-    def move_vehicle(self, row, col, delta):
+    def move_vehicle(self, row: int, col: int, delta:int):
         """
         Function that changes the row and column of a vehicle object, according to a move.
 
@@ -80,22 +71,18 @@ class Grid:
                 the output.csv file.
         """
 
-        # loop through vehicles, and find the vehicle that is on the inserted coordinates
+        # Loop through vehicles, and find the vehicle that is on the inserted coordinates
         for vehicle in self.vehicles:
             if vehicle.row - 1 == row and vehicle.col - 1 == col:
-
-                # distinguish cases for different orientation of the vehicle
-                # use set_new_... method to assign new row or col.
+                # Distinguish cases for different orientation of the vehicle
+                # Use set_new_... method to assign new row or col
                 if vehicle.orientation == 'H':
                     new_col = col + delta
                     vehicle.set_new_col(new_col + 1)
-
-
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
                     vehicle.set_new_row(new_row + 1)
-
-                # keep track of the moves in the outputfile
+                # Keep track of the moves in the outputfile
                 with open('output.csv', 'a') as f:
                     writer = csv.writer(f)
                     if vehicle.name == 99:
@@ -120,6 +107,8 @@ class Grid:
                 self.grid[vehicle.row - 1][vehicle.col - 1: vehicle.col - 1 + vehicle.length] = vehicle.name
             elif vehicle.orientation == 'V':
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
+
+        self.visual.append(self.grid)
 
 
     def __str__(self):

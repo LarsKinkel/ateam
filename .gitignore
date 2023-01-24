@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Output file
+output.csv
+
+# Mac OS folder meta data
+.DS_Store
+
+# Rhistory file
+.Rhistory

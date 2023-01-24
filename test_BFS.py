@@ -8,13 +8,18 @@ import csv, copy
 import os
 
 def find_all_next_states(BFSgrid):
-    # try to find all possible next states and store them in a list
+    """ Function to find all next possible stages.
+
+    Attributes:
+    BFSgrid: start state
+    """
+    # Try to find all possible next states and store them in a list
     next_states = []
     vehicles = BFSgrid.vehicles
     possible_moves = [-1, 1]
     startstate = copy.deepcopy(BFSgrid)
 
-    # loop through all vehicles and their possible moves
+    # Loop through all vehicles and their possible moves
     for vehicle in vehicles:
         for delta in possible_moves:
             BFSgrid = startstate
@@ -22,14 +27,12 @@ def find_all_next_states(BFSgrid):
                 startstate = copy.deepcopy(BFSgrid)
                 BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
                 BFSgrid.update_grid()
-                # if the state is not yet in the possible next states, append
+                # If the state is not yet in the possible next states, append
                 if BFSgrid not in next_states:
                     next_states.append(BFSgrid)
-
     return next_states
 
 if __name__ == '__main__':
-
     # Delete the existing CSV file:
     # file = 'output.csv'
     # if(os.path.exists(file) and os.path.isfile(file)):

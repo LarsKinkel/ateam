@@ -27,7 +27,7 @@ class Vehicle:
 
 
 def load_vehicles(filename: str):
-    with open(filename, 'r') as file:
+    with open("gameboards/"+filename, 'r') as file:
         header = file.readline().split(',')
         header[-1] = header[-1].strip()
 
@@ -48,7 +48,3 @@ def load_vehicles(filename: str):
             vehicles.append(vehicle)
 
     return vehicles
-
-# toevoegen dat een vehicle een bepaalde coordinaat heeft
-# (bij horizontale voertuigen het linker blokje en bij verticale
-# voertuigen de bovenste)

@@ -58,4 +58,6 @@ if __name__ == "__main__":
     plt.hist(all_random_solutions, bins = 50)
     plt.show()
 
+    # visualize(grid.visual, grid.dim, saveplot = True)
+
     # --------------------------- BFS Algorithm --------------------------------
