@@ -6,14 +6,6 @@ import matplotlib.pyplot as plt
 import csv
 import os
 
-
-
-class RushHourGame:
-
-    def __init__(self):
-        pass
-
-
 if __name__ == "__main__":
 
     with open("output.csv", 'w') as file:
@@ -58,6 +50,6 @@ if __name__ == "__main__":
     plt.hist(all_random_solutions, bins = 50)
     plt.show()
 
-    # visualize(grid.visual, grid.dim, saveplot = True)
+    visualize(grid.visual, grid.dim, saveplot = True)
 
     # --------------------------- BFS Algorithm --------------------------------
