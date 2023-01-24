@@ -98,7 +98,11 @@ class Grid:
                 # keep track of the moves in the outputfile
                 with open('output.csv', 'a') as f:
                     writer = csv.writer(f)
-                    namecar = chr(int(vehicle.name)+64)
+                    if vehicle.name == 99:
+                        name = 24
+                        namecar = chr(int(name)+64)
+                    else:
+                        namecar = chr(int(vehicle.name)+64)
                     writer.writerow((namecar, delta))
 
 
@@ -127,7 +131,7 @@ def setupgrid(game: int):
     Makes the grid object for the given game.
 
     Pre:    Number of the game to be solved.
-    Post:   Grid object is returned that contains the chosen game. 
+    Post:   Grid object is returned that contains the chosen game.
     """
     if game == 1:
         vehicles = load_vehicles("Rushhour6x6_1.csv")

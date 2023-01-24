@@ -26,8 +26,6 @@ def find_all_next_states(BFSgrid):
                 if BFSgrid not in next_states:
                     next_states.append(BFSgrid)
 
-
-
     return next_states
 
 if __name__ == '__main__':
@@ -45,7 +43,6 @@ if __name__ == '__main__':
     # print("State inserted is:")
     # print()
     BFSgrid = setupgrid(1)
-    print(BFSgrid)
     # print()
     #
     # print("All next states from state inserted are: ")
@@ -58,5 +55,5 @@ if __name__ == '__main__':
     #
     # print(f"Total of {len(next_states)} states are possible after beginstate")
 
-    algo = BFSalgorithm(BFSgrid, BFSgrid.vehicles)
-    algo.solve()
+    # algo = BFSalgorithm(BFSgrid, BFSgrid.vehicles)
+    # algo.solve()
