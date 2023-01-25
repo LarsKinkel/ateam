@@ -33,7 +33,7 @@ if __name__ == "__main__":
     count_rsolutions = 0
 
     # keep running the algorithm until ... solutions are found
-    while count_rsolutions < 1:
+    while count_rsolutions < 100:
         # when starting and after finding solution, setup the initial state of the game
         grid = setupgrid(1)
         vehicles = grid.vehicles
@@ -41,8 +41,10 @@ if __name__ == "__main__":
         # solve game according to random algorithm
         Algorithm = Randomalgorithm(grid, vehicles)
 
-        # append the amount of moves to the solutions list
-        all_random_solutions.append(Algorithm.solve())
+        # append the amount of moves to the solutions list if under 300.000
+        solution = Algorithm.solve()
+        if solution < 300000:
+            all_random_solutions.append(solution)
         count_rsolutions += 1
 
     # printing results
@@ -55,7 +57,7 @@ if __name__ == "__main__":
     print()
     print(f"{min(all_random_solutions)} moves until solution.")
     print()
-    plt.hist(all_random_solutions, bins = 50)
+    plt.hist(all_random_solutions, bins = 100)
     plt.show()
 
     # visualize(grid.visual, grid.dim, saveplot = True)
