@@ -46,23 +46,6 @@ if __name__ == '__main__':
     # print("State inserted is:")
     # print()
     BFSgrid = setupgrid(1)
-    # print(BFSgrid)
-    # BFSgrid.move_vehicle(0,1,-1)
-    # BFSgrid.update_grid()
-    # print(BFSgrid)
-    # BFSgrid.move_vehicle(1,1,-1)
-    # BFSgrid.update_grid()
-    # print(BFSgrid)
-    # BFSgrid.move_vehicle(2,2,1)
-    # BFSgrid.update_grid()
-    # print(BFSgrid)
-    # BFSgrid.move_vehicle(2,2,1)
-    # BFSgrid.update_grid()
-    # print(BFSgrid)
-    # print()
-    # for i in find_all_next_states(BFSgrid):
-    #     print(i)
-    #
     # print()
     #
     # print("All next states from state inserted are: ")
@@ -75,5 +58,5 @@ if __name__ == '__main__':
     #
     # print(f"Total of {len(next_states)} states are possible after beginstate")
 
-    algo = BFSalgorithm(BFSgrid)
-    algo.solve()
+    # algo = BFSalgorithm(BFSgrid, BFSgrid.vehicles)
+    # algo.solve()

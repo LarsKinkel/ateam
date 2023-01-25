@@ -86,7 +86,8 @@ class Grid:
                 with open('output.csv', 'a') as f:
                     writer = csv.writer(f)
                     if vehicle.name == 99:
-                        namecar = chr(24)
+                        name = 24
+                        namecar = chr(int(name)+64)
                     else:
                         namecar = chr(int(vehicle.name)+64)
                     writer.writerow((namecar, delta))

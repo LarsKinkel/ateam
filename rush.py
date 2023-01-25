@@ -30,5 +30,42 @@ if __name__ == "__main__":
     grid.move_vehicle(2,2,1)
     grid.update_grid()
 
+    grid.move_vehicle(3,0,1)
+    grid.update_grid()
+
+    grid.move_vehicle(4,0,1)
+    grid.update_grid()
+
+    grid.move_vehicle(4,4,-1)
+    grid.update_grid()
+
+    grid.move_vehicle(2,5,-1)
+    grid.update_grid()
+
+    grid.move_vehicle(3,5,-1)
+    grid.update_grid()
+
+    grid.move_vehicle(3,3,1)
+    grid.update_grid()
+
+    grid.move_vehicle(1,3,-1)
+    grid.update_grid()
+
+    grid.move_vehicle(0,2,1)
+    grid.update_grid()
+
+    grid.move_vehicle(1,2,1)
+    grid.update_grid()
+
+    grid.move_vehicle(2,0,1)
+    grid.update_grid()
+
+    grid.move_vehicle(2,3,1)
+    grid.update_grid()
+
+    
+
+    
+
     visualize(grid.visual, grid.dim, saveplot = True)
 
