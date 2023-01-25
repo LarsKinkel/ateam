@@ -123,16 +123,16 @@ def visualize(boards: List[np.ndarray], dimension: int, showplot: bool = True, s
     # Plot frames
     ims = [[plt.imshow(board, vmin=0, vmax=len(colors), cmap=cmap, norm = norm, animated=True)] for board in boards]
 
-    
+
     row_labels = range(1, dimension + 1)
     col_labels = range(1, dimension + 1)
 
     plt.xticks(range(dimension), col_labels)
     plt.yticks(range(dimension), row_labels)
     plt.tight_layout()
-    
 
-    ani = animation.ArtistAnimation(fig, ims, interval=500, blit=True, repeat_delay=1000)
+
+    ani = animation.ArtistAnimation(fig, ims, interval=500, blit=True, repeat_delay=500)
 
     if saveplot:
         ani.save(filename + '.gif', writer=animation.PillowWriter(fps=20))

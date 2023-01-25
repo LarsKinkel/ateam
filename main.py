@@ -6,14 +6,6 @@ import matplotlib.pyplot as plt
 import csv
 import os
 
-
-
-class RushHourGame:
-
-    def __init__(self):
-        pass
-
-
 if __name__ == "__main__":
 
     with open("output.csv", 'w') as file:
@@ -41,11 +33,10 @@ if __name__ == "__main__":
         # solve game according to random algorithm
         Algorithm = Randomalgorithm(grid, vehicles)
 
-        # append the amount of moves to the solutions list
-        sol = Algorithm.solve()
-        if sol < 300000:
-            all_random_solutions.append(sol)
-
+        # append the amount of moves to the solutions list if under 300.000
+        solution = Algorithm.solve()
+        if solution < 300000:
+            all_random_solutions.append(solution)
         count_rsolutions += 1
 
     # printing results
@@ -61,6 +52,6 @@ if __name__ == "__main__":
     plt.hist(all_random_solutions, bins = 100)
     plt.show()
 
-    # visualize(grid.visual, grid.dim, saveplot = True)
+    visualize(grid.visual, grid.dim, saveplot = True)
 
     # --------------------------- BFS Algorithm --------------------------------
