@@ -21,7 +21,12 @@ if __name__ == "__main__":
     #     grid.update_grid()
 
     grid = setupgrid(1)
+    grid1 = setupgrid(1)
+    print(grid == grid1)
+    print(grid.grid.all() == grid1.grid.all())
+    print(np.array_equal(grid.grid, grid1.grid))
+
     vehicles = grid.vehicles
 
-    Algorithm = Randomalgorithm(grid, vehicles)
-    Algorithm.solve()
+    # Algorithm = Randomalgorithm(grid, vehicles)
+    # Algorithm.solve()

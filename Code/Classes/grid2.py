@@ -114,6 +114,12 @@ class Grid:
     def __str__(self):
         return str(self.grid)
 
+    # def __eq__(self, other):
+    #     return self.grid == other.grid
+    #
+    # def __ne__(self, other):
+    #     return not self.__eq__(other)
+
 
 def setupgrid(game: int):
     """

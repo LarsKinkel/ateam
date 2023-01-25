@@ -4,6 +4,7 @@ sys.path.append("/Code/Classes")
 from Code.Classes.grid2 import *
 from test_BFS import *
 import queue
+import numpy as np
 
 
 class BFSalgorithm:
@@ -20,7 +21,12 @@ class BFSalgorithm:
 
 
     def get_next_states(self, BFSgrid):
-        # try to find all possible next states and store them in a list
+        """
+        Pre: give function a grid object
+        Post: Returnes a list of grid objects of that are possible next grids
+              from the beginning grid.
+        """
+
 
         vehicles = BFSgrid.vehicles
         possible_moves = [-1, 1]
@@ -37,19 +43,22 @@ class BFSalgorithm:
                     BFSgrid.update_grid()
 
                     # if the state is not yet in the possible next states, append
-                    if BFSgrid not in next_states:
+                    if len(next_states) == 0:
                         next_states.append(BFSgrid)
+                    else:
+                        for next_state in next_states:
+                            if not np.array_equal(BFSgrid.grid, next_state.grid):
+                                next_states.append(BFSgrid)
 
         return next_states
-
 
 
     def solve(self):
 
         # Find red car
-        for vehicle in self.vehicles:
-            if vehicle.name == 99:
-                redcar = vehicle
+        # for vehicle in self.vehicles:
+        #     if vehicle.name == 99:
+        #         redcar = vehicle
                 # print(redcar)
 
         # Set goal column for the red car for the different dimensions
@@ -60,28 +69,52 @@ class BFSalgorithm:
         elif self.grid.dim == 12:
             solve_col = 11
 
+        # seen_states = []
 
-        seen_states = set()
-        i = 0
         while self.states:
-            # print(i)
-            i += 1
-            state = self.get_next_state()        # get first from queue
             # print(len(self.states))
 
-            # Find red car
+            # get te next state from the list of states
+            state = self.get_next_state()
+            # print(f"states in stateslist: {len(self.states)}")
+            # print()
+
+            # Find red car because we need to keep track of it's col to determine solution
             for vehicle in state.vehicles:
                 if vehicle.name == 99:
                     redcar = vehicle
 
-            if redcar.col > 1:
+            if redcar.col > 2:
                 print(redcar.col)
+                print()
+
+            # print("state:")
+            # print(state.grid)
 
             if redcar.col != solve_col:
-                for next_state in self.get_next_states(state):
-                    if next_state not in seen_states:
-                        seen_states.add(next_state)
-                        self.states.append(next_state)
 
+                # if a the state is not yet in the seen states, append it to seen_states.
+                # if len(seen_states) == 0:
+                #     seen_states.append(state)
+
+                # for seen_state in seen_states:
+                #     if not np.array_equal(state.grid, seen_state.grid):
+                #         seen_states.append(state)
+
+                # print("seen states: ")
+                # for seen_state in seen_states:
+                    # print(seen_state)
+                    # print()
+                # print(len(seen_states))
+                next_states = self.get_next_states(state)
+                for next_state in next_states:
+                    # print(f"next state: {next_state}")
+                    # for seen_state in seen_states:
+                    #     if not np.array_equal(next_state.grid, seen_state.grid):
+                    self.states.append(next_state)
+                            # seen_states.append(next_state)
             else:
-                print(f"Found a solution: {state}")
+                print()
+                print(f"Found a solution: ")
+                print(state)
+                break
