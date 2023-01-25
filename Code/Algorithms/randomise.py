@@ -6,7 +6,7 @@ from Code.Classes.grid2 import *
 # Random Algorithm
 class Randomalgorithm:
     """ A random algorith to solve the Rush Hour puzzle
-    """"
+    """
     def __init__(self, grid, vehicles):
         self.vehicles = vehicles
         self.grid = grid

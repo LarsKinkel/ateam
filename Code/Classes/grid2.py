@@ -25,6 +25,8 @@ class Grid:
 
         self.visual.append(self.grid)
 
+        self.solvecol = self.dim - 1
+
 
     def move_possible(self, row: int, col: int, delta: int):
         """
@@ -109,6 +111,12 @@ class Grid:
                 self.grid[vehicle.row - 1: vehicle.row - 1 + vehicle.length, vehicle.col - 1] = vehicle.name
 
         self.visual.append(self.grid)
+
+    def is_solved(self):
+        for vehicle in self.vehicles:
+            if vehicle.name == 99:
+                return vehicle.col == self.solvecol
+
 
 
     def __str__(self):

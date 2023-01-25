@@ -34,8 +34,6 @@ def find_all_next_states(BFSgrid):
                 else:
                     print(next_states[0])
                     if not np.any(np.all(BFSgrid.grid == next_states)):
-                    # for next_state in next_states:
-                    #     if not np.array_equal(BFSgrid.grid, next_state.grid):
                         next_states.append(BFSgrid)
 
     return next_states
@@ -48,28 +46,21 @@ def get_next_states(BFSgrid):
           from the beginning grid.
     """
 
-
-    vehicles = BFSgrid.vehicles
     possible_moves = [-1, 1]
     startstate = copy.deepcopy(BFSgrid)
     next_states = []
 
     # loop through all vehicles and their possible moves
-    for vehicle in vehicles:
+    for vehicle in BFSgrid.vehicles:
         for delta in possible_moves:
-            BFSgrid = startstate
+            BFSgrid = copy.deepcopy(startstate)
             if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
-                startstate = copy.deepcopy(BFSgrid)
+                # startstate = copy.deepcopy(BFSgrid)
                 BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
                 BFSgrid.update_grid()
 
-                # if the state is not yet in the possible next states, append
-                if len(next_states) == 0:
-                    next_states.append(BFSgrid)
-                else:
-                    for next_state in next_states:
-                        if not np.array_equal(BFSgrid.grid, next_state.grid):
-                            next_states.append(BFSgrid)
+                next_states.append(BFSgrid)
+
 
     return next_states
 
@@ -108,16 +99,20 @@ if __name__ == '__main__':
             dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
             dw.writeheader()
 
+        grid = setupgrid(1)
+        algo = BFSalgorithm(grid)
+        algo.solve()
+
     # print("State inserted is:")
     # print()
-    vehicles = load_vehicles("klein.csv")
+    # vehicles = load_vehicles("klein.csv")
     # grid = Grid(3, vehicles)
     # grid = setupgrid(1)
-    # bfs_search(grid)
+    # # bfs_search(grid)
     # print(grid)
-    # print(BFSgrid)
-    # print()
-
+    # # print(BFSgrid)
+    # # print()
+    #
     # print("All next states from state inserted are: ")
     # print()
     #
@@ -129,7 +124,7 @@ if __name__ == '__main__':
     # print("pop next state: ")
     # print()
     # state0 = next_states.pop(0)
-    # print(state)
+    # print(state0)
     # print()
     #
     # print("next states:")
@@ -139,7 +134,17 @@ if __name__ == '__main__':
     #     print(state)
     #     print()
     #
+    # print("pop next state: ")
+    # print()
+    # state1 = next_states.pop(2)
+    # print(state1)
+    # print()
+    #
+    # print("next states:")
+    # print()
+    # next_states = get_next_states(state1)
+    # for state in next_states:
+    #     print(state)
+    #     print()
+    #
     # print(f"Total of {len(next_states)} states are possible after last state")
-    grid = setupgrid(1)
-    algo = BFSalgorithm(grid, grid.vehicles)
-    algo.solve()
