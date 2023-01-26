@@ -16,6 +16,7 @@ class Grid:
         self.vehicles = vehicles
         self.dim = dimension
         self.visual = []
+        self.depth = 0
 
         for vehicle in self.vehicles:
             if vehicle.orientation == 'H':

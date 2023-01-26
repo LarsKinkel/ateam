@@ -58,19 +58,29 @@ class BFSalgorithm:
 
     def solve(self):
 
-        while self.states:
-
+        # while self.states:
+        i = 0
+        while i < 10000:
+            i += 1
+            # print(i)
+            # print(len(self.seen_states))
+            # print(len(self.states))
             # get te next state from the list of states
             state = self.get_next_state()
 
-            # Find red car because we need to keep track of it's col to determine solution
-            for vehicle in state.vehicles:
-                if vehicle.name == 99:
-                    redcar = vehicle
+            if self.seen(state):
+                continue
 
-            if redcar.col > 0:
-                print(redcar.col)
-                print()
+            print(f'Next state: {state.depth} \n{state}')
+
+            # Find red car because we need to keep track of it's col to determine solution
+            # for vehicle in state.vehicles:
+            #     if vehicle.name == 99:
+            #         redcar = vehicle
+            #
+            # if redcar.col > 0:
+            #     print(redcar.col)
+            #     print()
 
             # print("state:")
             # print(state.grid)
@@ -78,14 +88,12 @@ class BFSalgorithm:
             if not state.is_solved():
 
                 # if a the state is not yet in the seen states, append it to seen_states.
-                if len(self.seen_states) == 0:
-                    self.seen_states.append(state)
-                else:
-                    if not self.seen(state):
-                        self.seen_states.append(state)
+                self.seen_states.append(state)
 
                 next_states = self.get_next_states(state)
+
                 for next_state in next_states:
+                    next_state.depth = state.depth + 1
                     if not self.seen(next_state):
                         self.states.append(next_state)
             else:

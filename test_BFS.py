@@ -105,17 +105,24 @@ if __name__ == '__main__':
 
     # --------------- check if BFS algorithm works as wanted -------------------
 
-    # grid = setupgrid(1)
-    # print(grid)
-    # algo = BFSalgorithm(grid)
-    # algo.solve()
+    # vehicles = load_vehicles("klein.csv")
+    # grid = Grid(5, vehicles)
+    grid = setupgrid(1)
+    print(grid)
+    algo = BFSalgorithm(grid)
+    algo.solve()
+    #
+    # # check seen states list after ... iterations
+    # for seen_state in algo.seen_states:
+    #     print(seen_state.grid)
+    #     print()
 
     # ------------- check if get_next_states function works as wanted ----------
 
     # print("State inserted is:")
     # print()
-    # # vehicles = load_vehicles("klein.csv")
-    # # grid = Grid(3, vehicles)
+    # vehicles = load_vehicles("klein.csv")
+    # grid = Grid(3, vehicles)
     # grid = setupgrid(1)
     # # bfs_search(grid)
     # print(grid)
@@ -145,7 +152,7 @@ if __name__ == '__main__':
     #
     # print("pop next state: ")
     # print()
-    # state1 = next_states.pop(2)
+    # state1 = next_states.pop(0)
     # print(state1)
     # print()
     #
