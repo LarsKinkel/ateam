@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
 
 
-    # --------------------------- Random reassignment --------------------------
+    # --------------------------- Random Algorithm --------------------------
     # Random algorithm that solves the rush hour game,
 
     # create empty list to store random solutions
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     count_rsolutions = 0
 
     # keep running the algorithm until ... solutions are found
-    while count_rsolutions < 100:
+    while count_rsolutions < 10:
         # when starting and after finding solution, setup the initial state of the game
         grid = setupgrid(1)
         vehicles = grid.vehicles
@@ -33,9 +33,9 @@ if __name__ == "__main__":
         # solve game according to random algorithm
         Algorithm = Randomalgorithm(grid, vehicles)
 
-        # append the amount of moves to the solutions list if under 300.000
+        # append the amount of moves to the solutions list if under 80.000
         solution = Algorithm.solve()
-        if solution < 300000:
+        if solution < 80000:
             all_random_solutions.append(solution)
         count_rsolutions += 1
         print(count_rsolutions)
@@ -54,4 +54,14 @@ if __name__ == "__main__":
 
     visualize(grid.visual, grid.dim, saveplot = True)
 
-    # --------------------------- BFS Algorithm --------------------------------
+    # ---------------------------- BFS algorithm -------------------------------
+    ## choose grid that you want to solve:
+    # grid = setupgrid(1)
+    # algo = BFSalgorithm(grid)
+    # algo.solve()
+
+    # ---------------------------- DFS algorithm -------------------------------
+    ## choose grid that you want to solve:
+    # grid = setupgrid(1)
+    # algo = DFSalgorithm(grid)
+    # algo.solve()

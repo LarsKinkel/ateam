@@ -2,9 +2,9 @@ import copy
 import sys
 sys.path.append("/Code/Classes")
 from Code.Classes.grid2 import *
-from test_BFS import *
 import queue
 import numpy as np
+import time
 
 
 class BFSalgorithm:
@@ -39,6 +39,7 @@ class BFSalgorithm:
                     if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
                         # startstate = copy.deepcopy(BFSgrid)
                         BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
+                        BFSgrid.store_move(vehicle.row - 1, vehicle.col - 1, delta)
                         BFSgrid.update_grid()
 
                         next_states.append(BFSgrid)
@@ -58,10 +59,11 @@ class BFSalgorithm:
 
     def solve(self):
 
-        # while self.states:
-        i = 0
-        while i < 10000:
-            i += 1
+        starttime = time.time()
+        while self.states:
+        # i = 0
+        # while i < 10000:
+        #     i += 1
             # print(i)
             # print(len(self.seen_states))
             # print(len(self.states))
@@ -71,7 +73,8 @@ class BFSalgorithm:
             if self.seen(state):
                 continue
 
-            print(f'Next state: {state.depth} \n{state}')
+            print(f'State depth: {state.depth}')
+            # print(state)
 
             # Find red car because we need to keep track of it's col to determine solution
             # for vehicle in state.vehicles:
@@ -94,10 +97,16 @@ class BFSalgorithm:
 
                 for next_state in next_states:
                     next_state.depth = state.depth + 1
+                    # next_state.depth.append()
                     if not self.seen(next_state):
                         self.states.append(next_state)
             else:
+                endtime = time.time()
+                timerun = endtime - starttime
                 print()
-                print(f"Found a solution: ")
+                print(f"Found a solution in {timerun} seconds: ")
                 print(state)
+                print()
+                print("The stored moves are:")
+                print(state.stored_moves)
                 break
