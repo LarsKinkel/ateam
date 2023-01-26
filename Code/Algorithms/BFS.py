@@ -11,8 +11,9 @@ class BFSalgorithm:
     def __init__(self, grid):
         self.vehicles = grid.vehicles
         self.grid = copy.deepcopy(grid)
-        self.states = [self.grid]
+        self.states = [(self.grid, [])]
         self.seen_states = []
+
 
 
     def get_next_state(self):
@@ -39,10 +40,11 @@ class BFSalgorithm:
                     if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
                         # startstate = copy.deepcopy(BFSgrid)
                         BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
-                        BFSgrid.store_move(vehicle.row - 1, vehicle.col - 1, delta)
+                        # BFSgrid.store_move(vehicle.row - 1, vehicle.col - 1, delta)
                         BFSgrid.update_grid()
 
-                        next_states.append(BFSgrid)
+                        next_states.append((BFSgrid, (vehicle.name, delta)))
+
                 except:
                     pass
 
@@ -68,10 +70,7 @@ class BFSalgorithm:
             # print(len(self.seen_states))
             # print(len(self.states))
             # get te next state from the list of states
-            state = self.get_next_state()
-
-            if self.seen(state):
-                continue
+            state, moves = self.get_next_state()
 
             print(f'State depth: {state.depth}')
             # print(state)
@@ -88,25 +87,28 @@ class BFSalgorithm:
             # print("state:")
             # print(state.grid)
 
-            if not state.is_solved():
-
-                # if a the state is not yet in the seen states, append it to seen_states.
-                self.seen_states.append(state)
-
-                next_states = self.get_next_states(state)
-
-                for next_state in next_states:
-                    next_state.depth = state.depth + 1
-                    # next_state.depth.append()
-                    if not self.seen(next_state):
-                        self.states.append(next_state)
-            else:
+            if state.is_solved():
                 endtime = time.time()
                 timerun = endtime - starttime
                 print()
                 print(f"Found a solution in {timerun} seconds: ")
                 print(state)
                 print()
-                print("The stored moves are:")
-                print(state.stored_moves)
+                print("The path to the solution is:")
+                print(moves)
+                print()
+                print(f"The ammount of moves is: {len(moves)}")
+                return moves
                 break
+
+            elif self.seen(state):
+                continue
+
+            # if a the state is not yet in the seen states, append it to seen_states.
+            self.seen_states.append(state)
+
+
+
+            for next_state, move in self.get_next_states(state):
+                next_state.depth = state.depth + 1
+                self.states.append((next_state, moves + [move]))

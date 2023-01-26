@@ -4,6 +4,7 @@ from Code.Classes.grid2 import *
 from Code.Algorithms.randomise import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
+from main import *
 import matplotlib.pyplot as plt
 import csv, copy
 import os
@@ -11,14 +12,12 @@ import os
 
 if __name__ == '__main__':
     # Delete the existing CSV file:
-    file = 'output.csv'
-    if(os.path.exists(file) and os.path.isfile(file)):
-        os.remove(file)
+    # file = 'output.csv'
+    # if(os.path.exists(file) and os.path.isfile(file)):
+    #     os.remove(file)
 
     # Print header of outputfile
-    with open("output.csv", 'w') as file:
-            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
-            dw.writeheader()
+
 
 
     # --------------- check if BFS algorithm works as wanted -------------------
@@ -28,7 +27,8 @@ if __name__ == '__main__':
     grid = setupgrid(1)
     print(grid)
     algo = BFSalgorithm(grid)
-    algo.solve()
+    moves = algo.solve()
+    write_to_output(moves)
     #
     # # check seen states list after ... iterations
     # for seen_state in algo.seen_states:
