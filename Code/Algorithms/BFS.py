@@ -34,14 +34,19 @@ class BFSalgorithm:
         for vehicle in BFSgrid.vehicles:
             for delta in possible_moves:
                 BFSgrid = copy.deepcopy(startstate)
-                if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
-                    # startstate = copy.deepcopy(BFSgrid)
-                    BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
-                    BFSgrid.update_grid()
 
-                    next_states.append(BFSgrid)
+                try:
+                    if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
+                        # startstate = copy.deepcopy(BFSgrid)
+                        BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
+                        BFSgrid.update_grid()
+
+                        next_states.append(BFSgrid)
+                except:
+                    pass
 
         return next_states
+
 
     def seen(self, grid):
         for seen_state in self.seen_states:

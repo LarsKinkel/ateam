@@ -42,6 +42,7 @@ class Randomalgorithm:
 
                     grid.move_vehicle(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
                     grid.update_grid()
+                    total_moves += 1
                     # print(grid)
             except:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)

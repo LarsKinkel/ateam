@@ -38,7 +38,7 @@ if __name__ == "__main__":
         if solution < 300000:
             all_random_solutions.append(solution)
         count_rsolutions += 1
-
+        print(count_rsolutions)
     # printing results
     print("The solutions that are found are after:")
     for solution in all_random_solutions:

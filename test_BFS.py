@@ -54,13 +54,16 @@ def get_next_states(BFSgrid):
     for vehicle in BFSgrid.vehicles:
         for delta in possible_moves:
             BFSgrid = copy.deepcopy(startstate)
-            if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
-                # startstate = copy.deepcopy(BFSgrid)
-                BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
-                BFSgrid.update_grid()
 
-                next_states.append(BFSgrid)
+            try:
+                if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
+                    # startstate = copy.deepcopy(BFSgrid)
+                    BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
+                    BFSgrid.update_grid()
 
+                    next_states.append(BFSgrid)
+            except:
+                pass
 
     return next_states
 
@@ -99,14 +102,20 @@ if __name__ == '__main__':
             dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
             dw.writeheader()
 
-        grid = setupgrid(1)
-        algo = BFSalgorithm(grid)
-        algo.solve()
+
+    # --------------- check if BFS algorithm works as wanted -------------------
+
+    # grid = setupgrid(1)
+    # print(grid)
+    # algo = BFSalgorithm(grid)
+    # algo.solve()
+
+    # ------------- check if get_next_states function works as wanted ----------
 
     # print("State inserted is:")
     # print()
-    # vehicles = load_vehicles("klein.csv")
-    # grid = Grid(3, vehicles)
+    # # vehicles = load_vehicles("klein.csv")
+    # # grid = Grid(3, vehicles)
     # grid = setupgrid(1)
     # # bfs_search(grid)
     # print(grid)
@@ -148,3 +157,15 @@ if __name__ == '__main__':
     #     print()
     #
     # print(f"Total of {len(next_states)} states are possible after last state")
+
+
+    # ------------------ check if seen() function works as wanted --------------
+    # grid = setupgrid(1)
+    # algo = BFSalgorithm(grid)
+    # algo.seen_states.append(grid)
+    #
+    # for seen_state in algo.seen_states:
+    #     print(seen_state.grid)
+    #
+    # grid2 = setupgrid(1)
+    # print(algo.seen(grid2))
