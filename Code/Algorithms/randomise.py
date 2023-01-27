@@ -54,7 +54,7 @@ class Randomalgorithm:
 
 
 
-            # print the number of iterations at every 10.000th iteration
+            # Print the number of iterations at every 10.000th iteration
             if total_moves % 10000 == 0:
                 print(f"{total_moves} moves made")
 

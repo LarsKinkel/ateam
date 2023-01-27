@@ -63,9 +63,5 @@ if __name__ == "__main__":
     grid.move_vehicle(2,3,1)
     grid.update_grid()
 
-    
-
-    
-
     visualize(grid.visual, grid.dim, saveplot = True)
 

@@ -1,10 +1,10 @@
+import time
+import numpy as np
+import queue
+from Code.Classes.grid2 import *
 import copy
 import sys
 sys.path.append("/Code/Classes")
-from Code.Classes.grid2 import *
-import queue
-import numpy as np
-import time
 
 
 class BFSalgorithm:
@@ -14,11 +14,8 @@ class BFSalgorithm:
         self.states = [(self.grid, [])]
         self.seen_states = []
 
-
-
     def get_next_state(self):
         return self.states.pop(0)
-
 
     def get_next_states(self, BFSgrid):
         """
@@ -31,7 +28,7 @@ class BFSalgorithm:
         startstate = copy.deepcopy(BFSgrid)
         next_states = []
 
-        # loop through all vehicles and their possible moves
+        # Loop through all vehicles and their possible moves
         for vehicle in BFSgrid.vehicles:
             for delta in possible_moves:
                 BFSgrid = copy.deepcopy(startstate)
@@ -39,7 +36,8 @@ class BFSalgorithm:
                 try:
                     if BFSgrid.move_possible(vehicle.row - 1, vehicle.col - 1, delta):
                         # startstate = copy.deepcopy(BFSgrid)
-                        BFSgrid.move_vehicle(vehicle.row - 1, vehicle.col - 1, delta)
+                        BFSgrid.move_vehicle(
+                            vehicle.row - 1, vehicle.col - 1, delta)
                         # BFSgrid.store_move(vehicle.row - 1, vehicle.col - 1, delta)
                         BFSgrid.update_grid()
 
@@ -50,7 +48,6 @@ class BFSalgorithm:
 
         return next_states
 
-
     def seen(self, grid):
         for seen_state in self.seen_states:
             if np.array_equal(grid.grid, seen_state.grid):
@@ -58,14 +55,13 @@ class BFSalgorithm:
 
         return False
 
-
     def solve(self):
 
         starttime = time.time()
         while self.states:
-        # i = 0
-        # while i < 10000:
-        #     i += 1
+            # i = 0
+            # while i < 10000:
+            #     i += 1
             # print(i)
             # print(len(self.seen_states))
             # print(len(self.states))
@@ -106,8 +102,6 @@ class BFSalgorithm:
 
             # if a the state is not yet in the seen states, append it to seen_states.
             self.seen_states.append(state)
-
-
 
             for next_state, move in self.get_next_states(state):
                 next_state.depth = state.depth + 1
