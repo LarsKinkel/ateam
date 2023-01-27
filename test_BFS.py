@@ -24,11 +24,12 @@ if __name__ == '__main__':
 
     # vehicles = load_vehicles("klein.csv")
     # grid = Grid(5, vehicles)
-    grid = setupgrid(1)
+    grid = setupgrid(2)
     print(grid)
     algo = BFSalgorithm(grid)
     moves = algo.solve()
     write_to_output(moves)
+    solution_visual(grid, moves, "Game2_solution")
     #
     # # check seen states list after ... iterations
     # for seen_state in algo.seen_states:

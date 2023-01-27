@@ -4,16 +4,13 @@ import matplotlib.animation as animation
 import numpy as np
 from typing import List
 
-def visualize(boards: List[np.ndarray], dimension: int, showplot: bool = True, saveplot: bool = False, filename: str = 'Solution'):
+def visual(boards: List[np.ndarray], dimension: int, showplot: bool = True, saveplot: bool = False, filename: str = 'Solution'):
     """ Function to make an animation of the grid.
 
     Attributes:
         boards (List[np.ndarray]): List of 2d arrays containing the position of the grids
         dimension (int): dimensions of board
     """
-    norm = BoundaryNorm(
-        np.unique(boards[0]),
-        len(np.unique(boards[0]) - 1))
 
     # For a 6x6 grid
     if dimension == 6:
@@ -117,11 +114,15 @@ def visualize(boards: List[np.ndarray], dimension: int, showplot: bool = True, s
         ]
         cmap = ListedColormap(colors)
 
+    norm = BoundaryNorm(
+        np.unique(boards[0]),
+        len(np.unique(boards[0]) - 1))
+
     # Set up figure
     fig = plt.figure(figsize=(8,8))
 
     # Plot frames
-    ims = [[plt.imshow(board, vmin=0, vmax=len(colors), cmap=cmap, norm = norm, animated=True)] for board in boards]
+    ims = [[plt.imshow(board, cmap=cmap, norm = norm, animated=True)] for board in boards]
 
 
     row_labels = range(1, dimension + 1)

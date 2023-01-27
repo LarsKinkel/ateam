@@ -22,6 +22,17 @@ def write_to_output(moves):
 
     print("The moves has been written to 'output.csv'")
 
+def solution_visual(start_grid, moves, filename):
+    for move in moves:
+        for vehicle in start_grid.vehicles:
+            if vehicle.name == move[0]:
+                start_grid.move_vehicle(vehicle.row - 1, vehicle.col - 1, move[1])
+                start_grid.update_grid()
+
+    visual(start_grid.visual, start_grid.dim, saveplot = True, filename = filename)
+
+
+
 
 if __name__ == "__main__":
 
