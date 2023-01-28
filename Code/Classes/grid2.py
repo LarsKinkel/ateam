@@ -86,28 +86,7 @@ class Grid:
                 elif vehicle.orientation == 'V':
                     new_row = row - delta
                     vehicle.set_new_row(new_row + 1)
-                # Keep track of the moves in the outputfile
-                # with open('output.csv', 'a') as f:
-                #     writer = csv.writer(f)
-                #     if vehicle.name == 99:
-                #         name = 24
-                #         namecar = chr(int(name)+64)
-                #     else:
-                #         namecar = chr(int(vehicle.name)+64)
-                #     writer.writerow((namecar, delta))
 
-
-    def store_move(self, row, col, delta):
-
-        for vehicle in self.vehicles:
-            if vehicle.row - 1 == row and vehicle.col - 1 == col:
-                if vehicle.name == 99:
-                    name = 24
-                    namecar = chr(int(name)+64)
-                else:
-                    namecar = chr(int(vehicle.name)+64)
-
-                self.past_moves[namecar] = delta
 
 
     def update_grid(self):
