@@ -48,8 +48,8 @@ class Randomalgorithm:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
 
             # print the number of iterations at every 10.000th iteration
-            if total_moves % 10000 == 0 and total_moves > 0:
-                print(f"{total_moves} moves made")
+            # if total_moves % 10000 == 0 and total_moves > 0:
+            #     print(f"{total_moves} moves made")
 
         print(f'Solution found after {total_moves} moves. ')
         print("The grid looks as follows at solved state:")

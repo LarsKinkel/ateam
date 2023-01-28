@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
         # append the amount of moves to the solutions list if under 80.000
         solution = Algorithm.solve()
-        if solution < 80000:
+        if solution < 100000:
             all_random_solutions.append(solution)
         count_rsolutions += 1
         print(count_rsolutions)
@@ -45,11 +45,17 @@ if __name__ == "__main__":
         print(f"{solution} moves, ")
 
     print()
+    print("Played game 1")
+    print()
     print(f"The best solution after running the random algorithm {count_rsolutions} times is:")
     print()
     print(f"{min(all_random_solutions)} moves until solution.")
     print()
-    plt.hist(all_random_solutions, bins = 100)
+    plt.title('Game 1: 1000 Random solutions')
+    plt.xlabel('Moves made')
+    plt.ylabel('Frequency')
+    plt.xlim(right=20000)
+    plt.hist(all_random_solutions, bins = 50)
     plt.show()
 
     visualize(grid.visual, grid.dim, saveplot = True)
