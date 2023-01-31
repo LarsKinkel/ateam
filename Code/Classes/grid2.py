@@ -18,6 +18,7 @@ class Grid:
         self.visual = []
         self.depth = 0
         self.stored_moves = {}
+        self.heuristic_score = 0
 
         for vehicle in self.vehicles:
             if vehicle.orientation == 'H':
