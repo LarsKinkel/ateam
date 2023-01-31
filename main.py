@@ -139,27 +139,12 @@ if __name__ == "__main__":
     # algo = BFS_H_algorithm(grid, 2)
     # algo.solve()
 
-    # ------------------------- BFS 3rd heuristic ------------------------------
-    # # BFS with third heuristic (amount of blocking cars + blocking blocking cars)
-    # grid = setupgrid(1)
+
+    # ------------------------- BFS 3th heuristic ------------------------------
+    # # BFS with fifth heuristic (manhattan distance)
+    # grid = setupgrid(4)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
     #
     # # solving algorithm
-    # algo = BFS_H_algorithm(grid, 3)
+    # algo = BFS_H_algorithm(grid, 3, goalstate)
     # algo.solve()
-
-    # ------------------------- BFS 4th heuristic ------------------------------
-    # BFS with third heuristic (H1 + H2)
-    # grid = setupgrid(1)
-    #
-    # solving algorithm
-    # algo = BFS_H_algorithm(grid, 4)
-    # algo.solve()
-
-    # ------------------------- BFS 5th heuristic ------------------------------
-    # BFS with third heuristic (manhattan distance)
-    grid = setupgrid(1)
-    goalstate = get_goal_state(copy.deepcopy(grid))
-
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 5, goalstate)
-    algo.solve()
