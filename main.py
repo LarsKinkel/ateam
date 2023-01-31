@@ -19,10 +19,14 @@ def write_to_output(moves):
         writer = csv.writer(f)
 
         for move in moves:
-            if move[0] == 99:
-                namecar = chr(int(24)+64)
+            if move[0] > 26:
+                if move[0] == 99:
+                    namecar = chr(88)
+                else:
+                    namecar = "A" + chr(int(move[0]) - 26 + 64)
             else:
-                namecar = chr(int(move[0])+64)
+                namecar = chr(int(move[0]) + 64)
+            
             writer.writerow((namecar, move[1]))
 
     print("The moves has been written to 'output.csv'")
@@ -157,9 +161,15 @@ if __name__ == "__main__":
 
     # ------------------------- BFS 5th heuristic ------------------------------
     # BFS with third heuristic (manhattan distance)
-    grid = setupgrid(1)
-    goalstate = get_goal_state(copy.deepcopy(grid))
+    # grid = setupgrid(5)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
 
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 5, goalstate)
-    algo.solve()
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 5, goalstate)
+    # algo.solve()
+
+    moves = [(5, -1), (1, 1), (1, 1), (10, -1), (10, -1), (5, -1), (20, 1), (20, 1), (17, -1), (5, 1), (10, 1), (11, 1), (11, 1), (11, 1), (10, -1), (5, -1), (11, 1), (11, 1), (19, 1), (19, 1), (17, -1), (5, 1), (10, 1), (10, 1), (20, 1), (20, 1), (20, 1), (10, -1), (10, -1), (20, 1), (1, -1), (11, -1), (1, -1), (5, 
+    1), (7, -1), (7, -1), (7, -1), (5, -1), (1, 1), (1, 1), (5, -1), (11, 1), (12, -1), (21, -1), (21, -1), (12, -1), (13, -1), (22, 1), (22, 1), (18, -1), (18, -1), (22, 1), (13, 1), (12, 1), (12, 1), (18, -1), (14, -1), (14, -1), (21, 1), (21, 1), (22, 1), (5, -1), (6, -1), (2, -1), (1, 1), (6, -1), (22, 1), (22, 1), (1, -1), (1, -1), (22, 1), (6, 1), (2, 1), (6, 1), (5, 1), (99, -1), (99, -1), (8, -1), (3, -1), (8, -1), (9, -1), (9, -1), (9, -1), (3, -1), 
+    (4, -1), (16, 1), (15, 1), (8, -1), (3, -1), (6, 1), (6, 1), (2, -1), (8, -1), (3, -1), (8, -1), (3, -1), (16, 1), (16, 1), (16, 1), (99, 1), (99, 1), (99, 1)]
+
+    solution_visual(setupgrid(5), moves, "Game5_solution")
