@@ -59,29 +59,9 @@ class BFSalgorithm:
 
         starttime = time.time()
         while self.states:
-            # i = 0
-            # while i < 10000:
-            #     i += 1
-            # print(i)
-            # print(len(self.seen_states))
-            # print(len(self.states))
-            # get te next state from the list of states
             state, moves = self.get_next_state()
 
             print(f'State depth: {state.depth}')
-            # print(state)
-
-            # Find red car because we need to keep track of it's col to determine solution
-            # for vehicle in state.vehicles:
-            #     if vehicle.name == 99:
-            #         redcar = vehicle
-            #
-            # if redcar.col > 0:
-            #     print(redcar.col)
-            #     print()
-
-            # print("state:")
-            # print(state.grid)
 
             if state.is_solved():
                 endtime = time.time()

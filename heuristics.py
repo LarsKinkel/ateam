@@ -61,61 +61,8 @@ def heuristics(grid , type, goalstate = None):
 
         return heuristic
 
-    # Heuristic 3: Nr of cars blocking the exit way of the red car
-    #               +  nr of cars blocking the first car blocking the red car
+    # Heuristic 3: Manhattan Distance to goal
     elif type == 3:
-        heuristic = 0
-
-        ## first calculate Heuristic 2 and store the blocking cars:
-        # find row of red car
-        blocking_cars = []
-
-        for vehicle in grid.vehicles:
-            if vehicle.name == 99:
-                redcar_row = vehicle.row
-                redcar_col = vehicle.col
-                break
-
-        for i in range(redcar_col + 1, grid.dim):
-            if grid.grid[redcar_row - 1][i] != 0:
-                heuristic += 1
-
-                # find blocking car object and append it to the blocking car list
-                for vehicle in grid.vehicles:
-                    if vehicle.name == grid.grid[redcar_row - 1][i]:
-                        blocking_cars.append(vehicle)
-
-        for vehicle in blocking_cars:
-            pass
-
-        return heuristic
-
-    # Heuristic 4: Mix H1 and H2
-    elif type == 4:
-        heuristic = 0
-
-        # find row and col of red car
-        for vehicle in grid.vehicles:
-            if vehicle.name == 99:
-                redcar_row = vehicle.row
-                redcar_col = vehicle.col
-                break
-
-        # determine final column depending on gridsize
-        final_col = grid.dim - 1
-
-        # add the distance of the redcar to the final column to the heuristic
-        heuristic += final_col - redcar_col
-
-        for i in range(redcar_col + 1, grid.dim):
-            if grid.grid[redcar_row - 1][i] != 0:
-                heuristic += 1
-
-
-        return heuristic
-
-    # Heuristic 5: Manhattan Distance to goal
-    elif type == 5:
         heuristic = 0
 
         for vehicle in grid.vehicles:

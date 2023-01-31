@@ -15,6 +15,7 @@ class BFS_H_algorithm:
         self.states = [(self.grid, [])]
         self.seen_states = []
         self.heuristic_type = heuristic_type
+        self.iterations = 0
 
         self.goalstate = goalstate
 
@@ -72,6 +73,7 @@ class BFS_H_algorithm:
             print(f'State depth: {state.depth}')
             # print(state)
 
+            self.iterations += 1
 
             if state.is_solved():
                 endtime = time.time()
@@ -84,6 +86,8 @@ class BFS_H_algorithm:
                 print(moves)
                 print()
                 print(f"The ammount of moves is: {len(moves)}")
+                print()
+                print(f"Iterations: {self.iterations}")
                 return moves
                 break
 
