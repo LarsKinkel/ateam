@@ -49,16 +49,17 @@ class Randomalgorithm:
                     grid.update_grid()
                     total_moves += 1
                     # print(grid)
+
+                    # Print the number of iterations at every 10.000th iteration
+                    if total_moves % 5000 == 0 and total_moves > 0:
+                        print(f"{total_moves} moves made")
+
             except:
                 print(random_vehicle.row - 1, random_vehicle.col - 1, random_delta)
 
 
 
-            # Print the number of iterations at every 10.000th iteration
-            if total_moves % 10000 == 0:
-                print(f"{total_moves} moves made")
-
         print(f'Solution found after {total_moves} moves. ')
         print("The grid looks as follows at solved state:")
         print(grid)
-        return total_moves, path
+        return total_moves, path, grid
