@@ -8,7 +8,7 @@ import sys
 sys.path.append("/Code/Classes")
 
 
-class Astar_algorithm:
+class BFS_H_algorithm:
     def __init__(self, grid, heuristic_type, goalstate = None):
         self.vehicles = grid.vehicles
         self.grid = copy.deepcopy(grid)
@@ -67,7 +67,7 @@ class Astar_algorithm:
             state, moves = self.get_next_state()
 
             # calculate heuristic
-            state.heuristic = heuristics(state, self.heuristic_type, self.goalstate)
+            state.heuristic_score = heuristics(state, self.heuristic_type, self.goalstate)
 
             print(f'State depth: {state.depth}')
             # print(state)
@@ -95,6 +95,7 @@ class Astar_algorithm:
 
             for next_state, move in self.get_next_states(state):
                 next_state.depth = state.depth + 1
-                next_state.heuristic = heuristics(next_state, self.heuristic_type, self.goalstate)
+                next_state.heuristic_score = heuristics(next_state, self.heuristic_type, self.goalstate)
                 self.states.append((next_state, moves + [move]))
-                self.states = sorted(self.states, key = lambda x : x[0].heuristic_score)
+
+            self.states = sorted(self.states, key = lambda x : x[0].heuristic_score)

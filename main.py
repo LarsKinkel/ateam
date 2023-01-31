@@ -4,7 +4,7 @@ from Code.Classes.grid2 import *
 from Code.Algorithms.randomise import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
-from Code.Algorithms.Astar import *
+from Code.Algorithms.BFS_H import *
 from heuristics import *
 
 import matplotlib.pyplot as plt
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     # grid = setupgrid(1)
     #
     # # solving algorithm
-    # algo = Astar_algorithm(grid, 1)
+    # algo = BFS_H_algorithm(grid, 1)
     # algo.solve()
 
     # ------------------------- BFS 2nd heuristic ------------------------------
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     # grid = setupgrid(1)
     #
     # # solving algorithm
-    # algo = Astar_algorithm(grid, 2)
+    # algo = BFS_H_algorithm(grid, 2)
     # algo.solve()
 
     # ------------------------- BFS 3rd heuristic ------------------------------
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     # grid = setupgrid(1)
     #
     # # solving algorithm
-    # algo = Astar_algorithm(grid, 3)
+    # algo = BFS_H_algorithm(grid, 3)
     # algo.solve()
 
     # ------------------------- BFS 4th heuristic ------------------------------
@@ -152,7 +152,7 @@ if __name__ == "__main__":
     # grid = setupgrid(1)
     #
     # solving algorithm
-    # algo = Astar_algorithm(grid, 4)
+    # algo = BFS_H_algorithm(grid, 4)
     # algo.solve()
 
     # ------------------------- BFS 5th heuristic ------------------------------
@@ -161,5 +161,5 @@ if __name__ == "__main__":
     goalstate = get_goal_state(copy.deepcopy(grid))
 
     # solving algorithm
-    algo = Astar_algorithm(grid, 5, goalstate)
+    algo = BFS_H_algorithm(grid, 5, goalstate)
     algo.solve()
