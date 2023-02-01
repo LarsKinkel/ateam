@@ -2,10 +2,10 @@ from Code.Algorithms.randomise import Randomalgorithm
 from visualgrid import visual
 
 
-def write_to_output(moves):
+def write_to_output(moves, filename):
     # Keep track of the moves in the outputfile
-    with open("output.csv", 'w+') as f:
-        dw = csv.DictWriter(f, delimiter=',', fieldnames=["car", "move"])
+    with open(filename + ".csv", 'w+') as f:
+        dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
         dw.writeheader()
         writer = csv.writer(f)
 
@@ -20,7 +20,8 @@ def write_to_output(moves):
 
             writer.writerow((namecar, move[1]))
 
-    print("The moves has been written to 'output.csv'")
+    print(f"The moves has been written to '{filename}.csv'")
+
 
 
 def solution_visual(start_grid, moves, filename):
