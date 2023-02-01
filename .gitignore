@@ -133,6 +133,7 @@ output.csv
 
 # Mac OS folder meta data
 .DS_Store
+.Solution.gif.icloud
 
 # Rhistory file
 .Rhistory

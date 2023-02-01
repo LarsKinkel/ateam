@@ -1,7 +1,5 @@
 from Code.Classes.vehicle import *
-from visualgrid import *
-from Code.Classes.grid import *
-# from Code.Algorithms.randomise import *
+# from visualgrid import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
 from Code.Algorithms.BFS_Heuristics import *
@@ -61,7 +59,7 @@ if __name__ == "__main__":
     # count_rsolutions = 0
     #
     # # Keep running the algorithm until ... solutions are found
-    # while count_rsolutions < 1:
+    # while count_rsolutions < 100:
     #     # when starting and after finding solution, setup the initial state of the game
     #     grid = setupgrid(1)
     #     vehicles = grid.vehicles
@@ -141,10 +139,10 @@ if __name__ == "__main__":
 
 
     # ------------------------- BFS 3rd heuristic ------------------------------
-    # # BFS with third heuristic (manhattan distance)
-    # grid = setupgrid(1)
-    # goalstate = get_goal_state(copy.deepcopy(grid))
-    #
-    # # solving algorithm
-    # algo = BFS_H_algorithm(grid, 3, goalstate)
-    # algo.solve()
+    # BFS with third heuristic (manhattan distance)
+    grid = setupgrid(1)
+    goalstate = get_goal_state(copy.deepcopy(grid))
+
+    # solving algorithm
+    algo = BFS_H_algorithm(grid, 3, goalstate)
+    algo.solve()
