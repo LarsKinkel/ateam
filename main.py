@@ -128,12 +128,12 @@ if __name__ == "__main__":
     # algo.solve()
 
     # ------------------------- BFS 1st heuristic ------------------------------
-    # BFS with first heuristic (distance red car to final state)
-    grid = setupgrid(4)
-    
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 1)
-    algo.solve()
+    # # BFS with first heuristic (distance red car to final state)
+    # grid = setupgrid(4)
+    #
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 1)
+    # algo.solve()
 
     # ------------------------- BFS 2nd heuristic ------------------------------
     # # BFS with second heuristic (amount of blocking cars)
@@ -145,7 +145,7 @@ if __name__ == "__main__":
 
 
     # ------------------------- BFS 3th heuristic ------------------------------
-    # # BFS with fifth heuristic (manhattan distance)
+    # # BFS with third heuristic (manhattan distance)
     # grid = setupgrid(7)
     # goalstate = get_goal_state(copy.deepcopy(grid))
     #
