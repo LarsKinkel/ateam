@@ -6,7 +6,8 @@ This repository contains a Python implementation of the board game Rush Hour. Th
 
 We also implemented an algorithm to find the fastest way of solving the puzzle. We implemented a:
 <ul>
-    <li>Breadth First Search algoritm (BFS)</li>
+    <li>Breadth First Search algorithm (BFS)</li>
+    <li>Depth First Search algorithm (DFS)</li>
     <li>Random solve algorithm</li>
 </ul>
 
