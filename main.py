@@ -15,10 +15,6 @@ if __name__ == "__main__":
             dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
             dw.writeheader()
 
-    # grid = setupgrid(6)
-    # visualize_grid(grid.grid, grid.dim)
-
-
 
     # --------------------------- Random Algorithm --------------------------
     # # Random algorithm that solves the rush hour game,
@@ -112,10 +108,11 @@ if __name__ == "__main__":
     #
 
     # ------------------------- BFS 3rd heuristic ------------------------------
-    # # BFS with third heuristic (manhattan distance)
-    # grid = setupgrid(1)
-    # goalstate = get_goal_state(copy.deepcopy(grid))
-    #
-    # # solving algorithm
-    # algo = BFS_H_algorithm(grid, 3, goalstate)
-    # algo.solve()
+    # BFS with third heuristic (manhattan distance)
+    grid = setupgrid(6)
+    goalstate = get_goal_state(copy.deepcopy(grid))
+
+    # solving algorithm
+    algo = BFS_H_algorithm(grid, 3, goalstate)
+    moves = algo.solve()
+    write_to_output(moves, "output")

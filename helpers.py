@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 import numpy as np
 from typing import List
 from Code.Algorithms.randomise import Randomalgorithm
-from visualgrid import visual
+# from visualgrid import visual
 import csv
 
 def write_to_output(moves, filename):
