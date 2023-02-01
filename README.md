@@ -32,10 +32,14 @@ We wanted to make use of some heuristics to try to improve the results we collec
 In the next part we will shortly explain the most important directories and files of this project:
 <ul>
     <li><strong>/Code</strong>: contains all the code of the project</li>
-    <ul>
     <li><strong>/Code/Algorithms</strong>: contains all the code for the different algorithms</li>
     <li><strong>/Code/Classes</strong>: contains the necessary classes for this project</li>
     </ul>
+    <ul>
+    <li><strong>/gameboards</strong>: here are game 1-7 as input csv format </li>
+    <ul>
+    <li><strong>/Results</strong>: contains the outputfiles and animations + robust results</li>
+    <ul>
 </ul>
 
 In the main folder, 'main.py' contains all the info for running the algorithms. Furthermore, helpers.py contains functions that are not used as method of a class.
@@ -45,11 +49,13 @@ The DFS algorithm is made with use of inheritance of the BFS algorithm, since we
 ## Results
 The output in csv format can be found in:
 <ul>
-    <li><strong>/Solutions</strong>: contains the game solutions for game 1-6 as output in csv format</li>
+    <li><strong>/Results/Solutions</strong>: contains the game solutions for game 1-6 as output in csv format</li>
     <ul>
-    <li><strong>/Solution animation</strong>: contains the game solutions for game 1-6 as a gif animation</li>
+    <li><strong>/Results/Solution animation</strong>: contains the game solutions for game 1-6 as a gif animation</li>
     <ul>
 </ul>
+
+Unfortunately, not in every animation the red car is shown as the red car on the deadline date, but for the presentation we are still trying to fix that.
 
 We were able to solve game 1-3 with the standard BFS algorithm, this means that our solutions for game 1-3 are the solutions with the least possible amount of moves.
 Unfortunately, game 4-7 caused time and memory issues when solving with BFS. Therefore we applied the heuristic functions. Heuristic 3 (Manhattan Distance) was the heuristic that gave us the most optimal solution for game 4-6. The solutions are quite good compared to the best random solutions that we acquired. For game 7, we were not able to find a solution with another algorithm than the random algorithm.
@@ -65,6 +71,8 @@ Below we show a table of the best results for the games, most important are the 
 | 5           | 85                | 3041       | Breadth First Search           |
 | 6           | 65                | 20286      | Breadth First Search           |
 | 7           | 7948              | 7948       | Random Algorithms              |
+
+The information in this table comes from a xls file where we kept track of all the results. This file can be found in the <strong>/Results</strong> folder.
 
 ## Authors
 <ul>
