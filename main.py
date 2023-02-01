@@ -6,15 +6,14 @@ from Code.Algorithms.BFS_Heuristics import *
 from helpers import *
 
 import matplotlib.pyplot as plt
-import csv
 import os
 
 
 if __name__ == "__main__":
 
-    # with open("output.csv", 'w') as file:
-    #         dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
-    #         dw.writeheader()
+    with open("output.csv", 'w') as file:
+            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
+            dw.writeheader()
 
     # grid = setupgrid(6)
     # visualize_grid(grid.grid, grid.dim)
@@ -81,7 +80,8 @@ if __name__ == "__main__":
     #
     # # solving algorithm
     # algo = BFSalgorithm(grid)
-    # algo.solve()
+    # moves = algo.solve()
+    # write_to_output(moves, "output")
 
     # ---------------------------- DFS algorithm -------------------------------
     # # choose grid that you want to solve:
@@ -112,10 +112,10 @@ if __name__ == "__main__":
 
 
     # ------------------------- BFS 3rd heuristic ------------------------------
-    # BFS with third heuristic (manhattan distance)
-    grid = setupgrid(1)
-    goalstate = get_goal_state(copy.deepcopy(grid))
-
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 3, goalstate)
-    algo.solve()
+    # # BFS with third heuristic (manhattan distance)
+    # grid = setupgrid(1)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
+    #
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 3, goalstate)
+    # algo.solve()
