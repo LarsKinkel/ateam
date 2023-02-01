@@ -104,12 +104,12 @@ if __name__ == "__main__":
     # grid = setupgrid(3)
     # # BFS with second heuristic (amount of blocking cars)
     # grid = setupgrid(1)
-
     #
+    # #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 2)
     # algo.solve()
-
+    #
 
     # ------------------------- BFS 3rd heuristic ------------------------------
     # # BFS with third heuristic (manhattan distance)
