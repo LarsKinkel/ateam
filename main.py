@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import csv
 import os
 
-def write_to_output(moves):
+def write_to_output(moves, filename):
     # Keep track of the moves in the outputfile
     with open("output.csv", 'w+') as f:
         dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
@@ -29,7 +29,7 @@ def write_to_output(moves):
 
             writer.writerow((namecar, move[1]))
 
-    print("The moves has been written to 'output.csv'")
+    print(f"The moves has been written to '{filename}.csv'")
 
 
 def solution_visual(start_grid, moves, filename):
@@ -137,11 +137,11 @@ if __name__ == "__main__":
 
     # ------------------------- BFS 2nd heuristic ------------------------------
     # # BFS with second heuristic (amount of blocking cars)
-    # grid = setupgrid(1)
-    #
-    # # solving algorithm
-    # algo = BFS_H_algorithm(grid, 2)
-    # algo.solve()
+    grid = setupgrid(4)
+    
+    # solving algorithm
+    algo = BFS_H_algorithm(grid, 2)
+    algo.solve()
 
 
     # ------------------------- BFS 3th heuristic ------------------------------
