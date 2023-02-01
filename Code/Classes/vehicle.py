@@ -38,7 +38,7 @@ def load_vehicles(filename: str):
 
             if len(splits[0]) > 1:
                 # ascival = (ord(splits[0][0]) - 64) + (ord(splits[0][1]) - 37)
-                ascival = 26 + ord(splits[0]) - 64
+                ascival = 26 + ord(splits[0][1]) - 64
 
             elif len(splits[0]) == 1:
                 ascival = ord(splits[0]) - 64

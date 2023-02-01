@@ -13,6 +13,7 @@ class BFSalgorithm:
         self.grid = copy.deepcopy(grid)
         self.states = [(self.grid, [])]
         self.seen_states = []
+        self.iterations = 0
 
     def get_next_state(self):
         return self.states.pop(0)
@@ -63,6 +64,8 @@ class BFSalgorithm:
 
             print(f'State depth: {state.depth}')
 
+            self.iterations += 1
+
             if state.is_solved():
                 endtime = time.time()
                 timerun = endtime - starttime
@@ -74,6 +77,8 @@ class BFSalgorithm:
                 print(moves)
                 print()
                 print(f"The ammount of moves is: {len(moves)}")
+                print()
+                print(f"Iterations: {self.iterations}")
                 return moves
                 break
 

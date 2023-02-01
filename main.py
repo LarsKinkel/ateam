@@ -4,7 +4,7 @@ from Code.Classes.grid2 import *
 from Code.Algorithms.randomise import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
-from Code.Algorithms.BFS_H import *
+from Code.Algorithms.BFS_Heuristics import *
 from heuristics import *
 
 import matplotlib.pyplot as plt
@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
     # ---------------------------- BFS algorithm -------------------------------
     # # choose grid that you want to solve:
-    # grid = setupgrid(2)
+    # grid = setupgrid(3)
     #
     # # solving algorithm
     # algo = BFSalgorithm(grid)
@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
     # ------------------------- BFS 1st heuristic ------------------------------
     # # BFS with first heuristic (distance red car to final state)
-    # grid = setupgrid(1)
+    # grid = setupgrid(4)
     #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 1)
@@ -145,8 +145,8 @@ if __name__ == "__main__":
 
 
     # ------------------------- BFS 3th heuristic ------------------------------
-    # # BFS with fifth heuristic (manhattan distance)
-    # grid = setupgrid(4)
+    # # BFS with third heuristic (manhattan distance)
+    # grid = setupgrid(7)
     # goalstate = get_goal_state(copy.deepcopy(grid))
     #
     # # solving algorithm
