@@ -71,13 +71,13 @@ if __name__ == "__main__":
     # visual(grid.visual, grid.dim, saveplot = True)
 
     # ---------------------------- BFS algorithm -------------------------------
-    # # choose grid that you want to solve:
-    # grid = setupgrid(1)
-    #
-    # # solving algorithm
-    # algo = BFSalgorithm(grid)
-    # moves = algo.solve()
-    # write_to_output(moves, "output")
+    # choose grid that you want to solve:
+    grid = setupgrid(3)
+
+    # solving algorithm
+    algo = BFSalgorithm(grid)
+    moves = algo.solve()
+    write_to_output(moves, "output")
 
     # ---------------------------- DFS algorithm -------------------------------
     # # choose grid that you want to solve:
@@ -108,12 +108,11 @@ if __name__ == "__main__":
     #
 
     # ------------------------- BFS 3rd heuristic ------------------------------
-    # BFS with third heuristic (manhattan distance)
-    grid = setupgrid(6)
-    goalstate = get_goal_state(copy.deepcopy(grid))
-
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 3, goalstate)
-    moves = algo.solve()
-    write_to_output(moves, "output")
-    
+    # # BFS with third heuristic (manhattan distance)
+    # grid = setupgrid(6)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
+    #
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 3, goalstate)
+    # moves = algo.solve()
+    # write_to_output(moves, "output")
