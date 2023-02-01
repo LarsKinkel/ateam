@@ -115,7 +115,11 @@ if __name__ == "__main__":
     # BFS with third heuristic (manhattan distance)
     grid = setupgrid(1)
     goalstate = get_goal_state(copy.deepcopy(grid))
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 5215680e52a1dfb9b9d6e464da0e33b12b3faa48
     # solving algorithm
     algo = BFS_H_algorithm(grid, 3, goalstate)
     algo.solve()
