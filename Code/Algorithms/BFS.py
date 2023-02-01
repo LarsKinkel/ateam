@@ -70,6 +70,8 @@ class BFSalgorithm:
                 endtime = time.time()
                 timerun = endtime - starttime
                 print()
+                print(f"Using BFS:")
+                print()
                 print(f"Found a solution in {timerun} seconds: ")
                 print(state)
                 print()
