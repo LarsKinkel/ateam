@@ -165,6 +165,11 @@ def visual(boards: List[np.ndarray], dimension: int, showplot: bool = True, save
 
 
 def solution_visual(start_grid, moves, filename):
+    """
+    Creates an animation of the given start grid and the moves
+    pre: Grid is an object, moves is a list of moves in tuple form (car, move) and the filename is a string
+    post: Creates and saves the animation
+    """
     for move in moves:
         for vehicle in start_grid.vehicles:
             if vehicle.name == move[0]:

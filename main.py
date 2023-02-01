@@ -1,5 +1,4 @@
 from Code.Classes.vehicle import *
-# from visualgrid import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
 from Code.Algorithms.BFS_Heuristics import *
@@ -10,12 +9,6 @@ import os
 
 
 if __name__ == "__main__":
-
-    with open("output.csv", 'w') as file:
-            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
-            dw.writeheader()
-
-
     # --------------------------- Random Algorithm --------------------------
     # # Random algorithm that solves the rush hour game,
     #
@@ -109,11 +102,10 @@ if __name__ == "__main__":
 
     # ------------------------- BFS 3rd heuristic ------------------------------
     # BFS with third heuristic (manhattan distance)
-    grid = setupgrid(6)
-    goalstate = get_goal_state(copy.deepcopy(grid))
+    # grid = setupgrid(1)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
 
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 3, goalstate)
-    moves = algo.solve()
-    write_to_output(moves, "output")
-    
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 3, goalstate)
+    # moves = algo.solve()
+    # write_to_output(moves, "output")
