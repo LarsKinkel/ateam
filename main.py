@@ -1,5 +1,4 @@
 from Code.Classes.vehicle import *
-# from visualgrid import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
 from Code.Algorithms.BFS_Heuristics import *
@@ -10,12 +9,6 @@ import os
 
 
 if __name__ == "__main__":
-
-    with open("output.csv", 'w') as file:
-            dw = csv.DictWriter(file, delimiter=',', fieldnames= ["car", "move"])
-            dw.writeheader()
-
-
     # --------------------------- Random Algorithm --------------------------
     # # Random algorithm that solves the rush hour game,
     #
