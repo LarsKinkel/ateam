@@ -34,12 +34,8 @@ In the next part we will shortly explain the most important directories and file
     <li><strong>/Code</strong>: contains all the code of the project</li>
     <li><strong>/Code/Algorithms</strong>: contains all the code for the different algorithms</li>
     <li><strong>/Code/Classes</strong>: contains the necessary classes for this project</li>
-    </ul>
-    <ul>
     <li><strong>/gameboards</strong>: here are game 1-7 as input csv format </li>
-    <ul>
     <li><strong>/Results</strong>: contains the outputfiles and animations + robust results</li>
-    <ul>
 </ul>
 
 In the main folder, 'main.py' contains all the info for running the algorithms. Furthermore, helpers.py contains functions that are not used as method of a class.
@@ -47,16 +43,6 @@ In the main folder, 'main.py' contains all the info for running the algorithms. 
 The DFS algorithm is made with use of inheritance of the BFS algorithm, since we only have to change one method in order to go from BFS to DFS. The BFS_H_algorithm is also very similar to the BFS algorithm, but since we adjusted a few things in the '__init__' and in the solve() method, we chose to write this algorithm on itself without making use of inheritance.
 
 ## Results
-The output in csv format can be found in:
-<ul>
-    <li><strong>/Results/Solutions</strong>: contains the game solutions for game 1-6 as output in csv format</li>
-    <ul>
-    <li><strong>/Results/Solution animation</strong>: contains the game solutions for game 1-6 as a gif animation</li>
-    <ul>
-</ul>
-
-Unfortunately, not in every animation the red car is shown as the red car on the deadline date, but for the presentation we are still trying to fix that.
-
 We were able to solve game 1-3 with the standard BFS algorithm, this means that our solutions for game 1-3 are the solutions with the least possible amount of moves.
 Unfortunately, game 4-7 caused time and memory issues when solving with BFS. Therefore we applied the heuristic functions. Heuristic 3 (Manhattan Distance) was the heuristic that gave us the most optimal solution for game 4-6. The solutions are quite good compared to the best random solutions that we acquired. For game 7, we were not able to find a solution with another algorithm than the random algorithm.
 
