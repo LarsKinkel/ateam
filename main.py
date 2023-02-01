@@ -6,7 +6,6 @@ from Code.Algorithms.BFS_Heuristics import *
 from helpers import *
 
 import matplotlib.pyplot as plt
-import csv
 import os
 
 
@@ -81,7 +80,8 @@ if __name__ == "__main__":
     #
     # # solving algorithm
     # algo = BFSalgorithm(grid)
-    # algo.solve()
+    # moves = algo.solve()
+    # write_to_output(moves, "output")
 
     # ---------------------------- DFS algorithm -------------------------------
     # # choose grid that you want to solve:
@@ -112,6 +112,7 @@ if __name__ == "__main__":
     #
 
     # ------------------------- BFS 3rd heuristic ------------------------------
+<<<<<<< HEAD
     # BFS with third heuristic (manhattan distance)
     grid = setupgrid(1)
     goalstate = get_goal_state(copy.deepcopy(grid))
@@ -123,3 +124,12 @@ if __name__ == "__main__":
     # solving algorithm
     algo = BFS_H_algorithm(grid, 3, goalstate)
     algo.solve()
+=======
+    # # BFS with third heuristic (manhattan distance)
+    # grid = setupgrid(1)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
+    #
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 3, goalstate)
+    # algo.solve()
+>>>>>>> c70f9e66a583cd3bf12af774dcc4ef5f77a774d8
