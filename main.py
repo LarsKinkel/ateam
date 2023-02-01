@@ -13,7 +13,7 @@ import os
 
 def write_to_output(moves, filename):
     # Keep track of the moves in the outputfile
-    with open("output.csv", 'w+') as f:
+    with open(filename + ".csv", 'w+') as f:
         dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
         dw.writeheader()
         writer = csv.writer(f)
@@ -136,19 +136,19 @@ if __name__ == "__main__":
     # algo.solve()
 
     # ------------------------- BFS 2nd heuristic ------------------------------
-    # # BFS with second heuristic (amount of blocking cars)
-    grid = setupgrid(4)
+    # BFS with second heuristic (amount of blocking cars)
+    # grid = setupgrid(1)
     
-    # solving algorithm
-    algo = BFS_H_algorithm(grid, 2)
-    algo.solve()
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 2)
+    # algo.solve()
 
 
     # ------------------------- BFS 3th heuristic ------------------------------
     # # BFS with third heuristic (manhattan distance)
-    # grid = setupgrid(7)
+    # grid = setupgrid(1)
     # goalstate = get_goal_state(copy.deepcopy(grid))
-    #
+    
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 3, goalstate)
     # algo.solve()
@@ -158,3 +158,4 @@ if __name__ == "__main__":
     # (4, -1), (16, 1), (15, 1), (8, -1), (3, -1), (6, 1), (6, 1), (2, -1), (8, -1), (3, -1), (8, -1), (3, -1), (16, 1), (16, 1), (16, 1), (99, 1), (99, 1), (99, 1)]
     #
     # solution_visual(setupgrid(5), moves, "Game5_solution")
+    
