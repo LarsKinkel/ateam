@@ -9,7 +9,7 @@ def visual(boards: List[np.ndarray], dimension: int, showplot: bool = True, save
 
     Attributes:
         boards (List[np.ndarray]): List of 2d arrays containing the position of the grids
-        dimension (int): dimensions of board
+        dimension (int): dimension of board
     """
 
     # For a 6x6 grid
