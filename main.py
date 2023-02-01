@@ -116,3 +116,4 @@ if __name__ == "__main__":
     algo = BFS_H_algorithm(grid, 3, goalstate)
     moves = algo.solve()
     write_to_output(moves, "output")
+    
