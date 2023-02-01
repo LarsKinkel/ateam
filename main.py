@@ -64,13 +64,15 @@ if __name__ == "__main__":
     # visual(grid.visual, grid.dim, saveplot = True)
 
     # ---------------------------- BFS algorithm -------------------------------
-    # choose grid that you want to solve:
-    grid = setupgrid(3)
-
-    # solving algorithm
-    algo = BFSalgorithm(grid)
-    moves = algo.solve()
-    write_to_output(moves, "output")
+    # # choose grid that you want to solve:
+    # grid = setupgrid(1)
+    #
+    # # solving algorithm
+    # algo = BFSalgorithm(grid)
+    # moves = algo.solve()
+    #
+    # # write the solution to the outputfile
+    # write_to_output(moves, "output")
 
     # ---------------------------- DFS algorithm -------------------------------
     # # choose grid that you want to solve:
@@ -78,7 +80,10 @@ if __name__ == "__main__":
     #
     # # solving algorithm
     # algo = DFSalgorithm(grid)
-    # algo.solve()
+    # moves = algo.solve()
+    #
+    # # write the solution to the outputfile
+    # write_to_output(moves, "output")
 
     # ------------------------- BFS 1st heuristic ------------------------------
     # # BFS with first heuristic (distance red car to final state)
@@ -86,7 +91,10 @@ if __name__ == "__main__":
     #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 1)
-    # algo.solve()
+    # moves = algo.solve()
+    #
+    # # write the solution to the outputfile
+    # write_to_output(moves, "output")
 
     # ------------------------- BFS 2nd heuristic ------------------------------
     # BFS with second heuristic (amount of blocking cars)
@@ -97,15 +105,19 @@ if __name__ == "__main__":
     # #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 2)
-    # algo.solve()
+    # moves = algo.solve()
     #
+    # # write the solution to the outputfile
+    # write_to_output(moves, "output")
 
     # ------------------------- BFS 3rd heuristic ------------------------------
     # # BFS with third heuristic (manhattan distance)
-    # grid = setupgrid(6)
+    # grid = setupgrid(1)
     # goalstate = get_goal_state(copy.deepcopy(grid))
     #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 3, goalstate)
     # moves = algo.solve()
+    #
+    # # write the solution to the outputfile
     # write_to_output(moves, "output")
