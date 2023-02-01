@@ -12,35 +12,35 @@ import matplotlib.pyplot as plt
 import csv
 import os
 
-# def write_to_output(moves):
-#     # Keep track of the moves in the outputfile
-#     with open("output.csv", 'w+') as f:
-#         dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
-#         dw.writeheader()
-#         writer = csv.writer(f)
-#
-#         for move in moves:
-#             if move[0] > 26:
-#                 if move[0] == 99:
-#                     namecar = chr(88)
-#                 else:
-#                     namecar = "A" + chr(int(move[0]) - 26 + 64)
-#             else:
-#                 namecar = chr(int(move[0]) + 64)
-#
-#             writer.writerow((namecar, move[1]))
-#
-#     print("The moves has been written to 'output.csv'")
-#
-#
-# def solution_visual(start_grid, moves, filename):
-#     for move in moves:
-#         for vehicle in start_grid.vehicles:
-#             if vehicle.name == move[0]:
-#                 start_grid.move_vehicle(vehicle.row - 1, vehicle.col - 1, move[1])
-#                 start_grid.update_grid()
-#
-#     visual(start_grid.visual, start_grid.dim, saveplot = True, filename = filename)
+def write_to_output(moves, filename):
+    # Keep track of the moves in the outputfile
+    with open(filename + ".csv", 'w+') as f:
+        dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
+        dw.writeheader()
+        writer = csv.writer(f)
+
+        for move in moves:
+            if move[0] > 26:
+                if move[0] == 99:
+                    namecar = chr(88)
+                else:
+                    namecar = "A" + chr(int(move[0]) - 26 + 64)
+            else:
+                namecar = chr(int(move[0]) + 64)
+
+            writer.writerow((namecar, move[1]))
+
+    print(f"The moves has been written to '{filename}.csv'")
+
+
+def solution_visual(start_grid, moves, filename):
+    for move in moves:
+        for vehicle in start_grid.vehicles:
+            if vehicle.name == move[0]:
+                start_grid.move_vehicle(vehicle.row - 1, vehicle.col - 1, move[1])
+                start_grid.update_grid()
+
+    visual(start_grid.visual, start_grid.dim, saveplot = True, filename = filename)
 
 
 if __name__ == "__main__":
@@ -132,8 +132,8 @@ if __name__ == "__main__":
 
     # ------------------------- BFS 2nd heuristic ------------------------------
     # BFS with second heuristic (amount of blocking cars)
-    # grid = setupgrid(1)
-
+    # grid = setupgrid(3)
+    #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 2)
     # algo.solve()
