@@ -1,15 +1,11 @@
 import time
 import numpy as np
-import queue
-from Code.Classes.grid2 import *
-from heuristics import *
+from helpers import heuristics
 import copy
-import sys
-sys.path.append("/Code/Classes")
 
 
 class BFS_H_algorithm:
-    def __init__(self, grid, heuristic_type, goalstate = None):
+    def __init__(self, grid, heuristic_type, goalstate=None):
         self.vehicles = grid.vehicles
         self.grid = copy.deepcopy(grid)
         self.states = [(self.grid, [])]
@@ -60,7 +56,6 @@ class BFS_H_algorithm:
 
         return False
 
-
     def solve(self):
 
         starttime = time.time()
@@ -78,6 +73,8 @@ class BFS_H_algorithm:
             if state.is_solved():
                 endtime = time.time()
                 timerun = endtime - starttime
+                print()
+                print(f"Using BFS with Heuristic type {self.heuristic_type}:")
                 print()
                 print(f"Found a solution in {timerun} seconds: ")
                 print(state)
@@ -102,4 +99,4 @@ class BFS_H_algorithm:
                 next_state.heuristic_score = heuristics(next_state, self.heuristic_type, self.goalstate)
                 self.states.append((next_state, moves + [move]))
 
-            self.states = sorted(self.states, key = lambda x : x[0].heuristic_score)
+            self.states = sorted(self.states, key=lambda x: x[0].heuristic_score)

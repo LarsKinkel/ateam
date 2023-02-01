@@ -1,7 +1,7 @@
 import time
 import numpy as np
 import queue
-from Code.Classes.grid2 import *
+from Code.Classes.grid import *
 import copy
 import sys
 sys.path.append("/Code/Classes")
@@ -69,6 +69,8 @@ class BFSalgorithm:
             if state.is_solved():
                 endtime = time.time()
                 timerun = endtime - starttime
+                print()
+                print(f"Using BFS:")
                 print()
                 print(f"Found a solution in {timerun} seconds: ")
                 print(state)
