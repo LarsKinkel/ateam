@@ -40,4 +40,4 @@ In the next part we will shortly explain the most important directories and file
 </ul>
 
 ## Acknowlegdements
-We would like to thank our course coordinators, Quinten van der Post and Wouter Vrielink, to provide us with the necessary knowledge we needed to complete our assignment. We would also like to thank our mentors, Lars Veefkind and Yvette Schorder, who guided and advised us greatly during the making of this project.
+We would like to thank our course coordinators, Quinten van der Post and Wouter Vrielink, to provide us with the necessary knowledge we needed to complete our assignment. We would also like to thank our mentors, Lars Veefkind and Yvette Schroder, who guided and advised us greatly during the making of this project.
