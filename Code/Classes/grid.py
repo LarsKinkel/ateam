@@ -53,12 +53,12 @@ class Grid:
                             return False
                         return True
                 elif vehicle.orientation == 'V':
-                    new_row = row - delta
-                    if delta == -1:
+                    new_row = row + delta
+                    if delta == 1:
                         # Validate that we are not mounting another vehicle:
                         if new_row + vehicle.length > self.dim or self.grid[vehicle.row - 1 + vehicle.length, vehicle.col - 1] != 0:
                             return False
-                    elif delta == 1:
+                    elif delta == -1:
                         # Validate grid borders
                         if new_row < 0 or self.grid[vehicle.row - 2, vehicle.col - 1] != 0:
                             return False
@@ -85,7 +85,7 @@ class Grid:
                     new_col = col + delta
                     vehicle.set_new_col(new_col + 1)
                 elif vehicle.orientation == 'V':
-                    new_row = row - delta
+                    new_row = row + delta
                     vehicle.set_new_row(new_row + 1)
 
 
@@ -116,12 +116,6 @@ class Grid:
 
     def __str__(self):
         return str(self.grid)
-
-    # def __eq__(self, other):
-    #     return self.grid == other.grid
-    #
-    # def __ne__(self, other):
-    #     return not self.__eq__(other)
 
 
 def setupgrid(game: int):

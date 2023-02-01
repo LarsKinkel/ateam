@@ -1,46 +1,13 @@
 from Code.Classes.vehicle import *
-from visualgrid import *
-from Code.Classes.grid2 import *
-# from Code.Algorithms.randomise import *
+# from visualgrid import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *
 from Code.Algorithms.BFS_Heuristics import *
-# from heuristics import *
 from helpers import *
 
 import matplotlib.pyplot as plt
 import csv
 import os
-
-# def write_to_output(moves):
-#     # Keep track of the moves in the outputfile
-#     with open("output.csv", 'w+') as f:
-#         dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
-#         dw.writeheader()
-#         writer = csv.writer(f)
-#
-#         for move in moves:
-#             if move[0] > 26:
-#                 if move[0] == 99:
-#                     namecar = chr(88)
-#                 else:
-#                     namecar = "A" + chr(int(move[0]) - 26 + 64)
-#             else:
-#                 namecar = chr(int(move[0]) + 64)
-#
-#             writer.writerow((namecar, move[1]))
-#
-#     print("The moves has been written to 'output.csv'")
-#
-#
-# def solution_visual(start_grid, moves, filename):
-#     for move in moves:
-#         for vehicle in start_grid.vehicles:
-#             if vehicle.name == move[0]:
-#                 start_grid.move_vehicle(vehicle.row - 1, vehicle.col - 1, move[1])
-#                 start_grid.update_grid()
-#
-#     visual(start_grid.visual, start_grid.dim, saveplot = True, filename = filename)
 
 
 if __name__ == "__main__":
@@ -64,14 +31,16 @@ if __name__ == "__main__":
     # # Keep running the algorithm until ... solutions are found
     # while count_rsolutions < 100:
     #     # when starting and after finding solution, setup the initial state of the game
-    #     grid = setupgrid(...)
+    #     grid = setupgrid(1)
     #     vehicles = grid.vehicles
     #
     #     # Solve game according to random algorithm
     #     Algorithm = Randomalgorithm(grid, vehicles)
     #
     #     # Append the amount of moves to the solutions list
-    #     total_moves, moves = Algorithm.solve()
+    #     solution = Algorithm.solve()
+    #     total_moves = solution[0]
+    #     moves = solution[1]
     #     all_random_solutions.append((total_moves, moves))
     #     count_rsolutions += 1
     #     print(f"We now have {count_rsolutions} solutions")
@@ -104,7 +73,7 @@ if __name__ == "__main__":
     # plt.hist(hist, bins = 50)
     # plt.show()
     #
-    # visualize(grid.visual, grid.dim, saveplot = True)
+    # visual(grid.visual, grid.dim, saveplot = True)
 
     # ---------------------------- BFS algorithm -------------------------------
     # # choose grid that you want to solve:
@@ -132,15 +101,19 @@ if __name__ == "__main__":
 
     # ------------------------- BFS 2nd heuristic ------------------------------
     # BFS with second heuristic (amount of blocking cars)
+    # grid = setupgrid(3)
+    # # BFS with second heuristic (amount of blocking cars)
     # grid = setupgrid(1)
-
+    #
+    # #
     # # solving algorithm
     # algo = BFS_H_algorithm(grid, 2)
     # algo.solve()
-
+    #
 
     # ------------------------- BFS 3rd heuristic ------------------------------
     # BFS with third heuristic (manhattan distance)
+<<<<<<< HEAD
     grid = setupgrid(1)
     goalstate = get_goal_state(copy.deepcopy(grid))
 
@@ -153,3 +126,11 @@ if __name__ == "__main__":
     (4, -1), (16, 1), (15, 1), (8, -1), (3, -1), (6, 1), (6, 1), (2, -1), (8, -1), (3, -1), (8, -1), (3, -1), (16, 1), (16, 1), (16, 1), (99, 1), (99, 1), (99, 1)]
     
     solution_visual(setupgrid(5), moves, "Game5_solution")
+=======
+    # grid = setupgrid(1)
+    # goalstate = get_goal_state(copy.deepcopy(grid))
+    #
+    # # solving algorithm
+    # algo = BFS_H_algorithm(grid, 3, goalstate)
+    # algo.solve()
+>>>>>>> 22a05767639b9b5cee6f830d53f0f4a32f8e0b7d
