@@ -1,7 +1,7 @@
 import time
 import numpy as np
 import queue
-from Code.Classes.grid2 import *
+from Code.Classes.grid import *
 from heuristics import *
 import copy
 import sys

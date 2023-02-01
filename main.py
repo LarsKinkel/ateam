@@ -1,6 +1,6 @@
 from Code.Classes.vehicle import *
 from visualgrid import *
-from Code.Classes.grid2 import *
+from Code.Classes.grid import *
 # from Code.Algorithms.randomise import *
 from Code.Algorithms.BFS import *
 from Code.Algorithms.DFS import *

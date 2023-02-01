@@ -2,7 +2,7 @@ import copy
 import sys
 from .BFS import BFSalgorithm
 sys.path.append("/Code/Classes")
-from Code.Classes.grid2 import *
+from Code.Classes.grid import *
 import queue
 import numpy as np
 import time

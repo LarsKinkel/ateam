@@ -1,9 +1,11 @@
-from Code.Algorithms.randomise import *
+from Code.Algorithms.randomise import Randomalgorithm
+from visualgrid import visual
+
 
 def write_to_output(moves):
     # Keep track of the moves in the outputfile
     with open("output.csv", 'w+') as f:
-        dw = csv.DictWriter(f, delimiter=',', fieldnames= ["car", "move"])
+        dw = csv.DictWriter(f, delimiter=',', fieldnames=["car", "move"])
         dw.writeheader()
         writer = csv.writer(f)
 
@@ -28,10 +30,15 @@ def solution_visual(start_grid, moves, filename):
                 start_grid.move_vehicle(vehicle.row - 1, vehicle.col - 1, move[1])
                 start_grid.update_grid()
 
-    visual(start_grid.visual, start_grid.dim, saveplot = True, filename = filename)
+    visual(start_grid.visual, start_grid.dim, saveplot=True, filename=filename)
 
 
 def get_goal_state(grid):
+    """
+    Pre: grid object
+    Post: returns a final state of the inserted grid object
+    """
+
     vehicles = grid.vehicles
     Algorithm = Randomalgorithm(grid, vehicles)
     goalstate = Algorithm.solve()[2]
@@ -53,8 +60,15 @@ def get_manhattan_distance(vehicle, goal_position):
 
             return ManDist
 
-# Heuristic 1: Distance red car to exit
-def heuristics(grid , type, goalstate = None):
+
+def heuristics(grid, type, goalstate=None):
+    """
+    Heuristic function that calculates the heuristic value of a grid, depending
+    on the heuristic that one wants to use (type)
+
+    Pre: needs a grid, and a type (1-3), for heuristic 3, needs a goalstate.
+    Post: returns a heuristic score which is an integer value, for the grid inserted
+    """
 
     # Heuristic 1: Distance red car to exit
     if type == 1:
@@ -88,7 +102,6 @@ def heuristics(grid , type, goalstate = None):
         for i in range(redcar_col + 1, grid.dim):
             if grid.grid[redcar_row - 1][i] != 0:
                 heuristic += 1
-
 
         return heuristic
 

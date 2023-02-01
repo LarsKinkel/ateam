@@ -1,7 +1,7 @@
 import random
 import sys
 sys.path.append("/Code/Classes")
-from Code.Classes.grid2 import *
+from Code.Classes.grid import *
 
 # Random Algorithm
 class Randomalgorithm:
