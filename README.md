@@ -56,7 +56,7 @@ Below we show a table of the best results for the games, most important are the 
 | 4           | 74                | 14298      | Breadth First Search H3 (MHD)  |
 | 5           | 85                | 3041       | Breadth First Search H3 (MHD)  |
 | 6           | 65                | 20286      | Breadth First Search H3 (MHD)  |
-| 7           | 7948              | 7948       | Random Algorithms              |
+| 7           | 7948              | 7948       | Random Algorithm               |
 
 The information in this table comes from a xls file where we kept track of all the results. This file can be found in the <strong>/Results</strong> folder.
 
